@@ -5,9 +5,7 @@
        Suất chiếu/
         <a href="{{ Route('admin.suatchieu.create') }} " class="btn btn-info" style="margin-top:-8px;">Thêm mới</a>
 =======
-       Danh Sách Phim/
-        <a href="" class="btn btn-info" style="margin-top:-8px;">Thêm mới</a>
->>>>>>> Stashed changes()
+       
     </h3>
 @stop
 @section('content')                 
@@ -16,8 +14,7 @@
 <<<<<<< Updated upstream
     <b><i>Suất chiếu</i></b>
 =======
-    <b><i>Danh sách Phim</i></b>
->>>>>>> Stashed changes
+   
 </div>
 <!-- /.panel-heading -->
 <div class="panel-body">
@@ -31,17 +28,7 @@
                 <th>Mã Suất chiếu</th>
                 <th>Thời gian chiếu</th>
                 <th>Trạng thái</th>
-=======
-           
-            <tr>
-                <th>Mã Phim</th>
-                <th>Tên Phim</th>
-                <th>Ngày chiếu</th>
-                <th>Ngày kết thúc</th>
-                <th>Thời gian</th>
-                <th>Hình ảnh</th>
-                <th>Tuổi</th>
-                <th>TT</th>
+
 >>>>>>> Stashed changes
                 <th>Xóa</th>
                 <th>Sửa</th>
@@ -64,26 +51,7 @@
                 
                
 =======
-        @foreach($demo as $demos)
-        <tbody>
-       
-        <td>{{ $demos -> MaPhim }}</td>
-                <td>{{ $demos -> TenPhim }}</td>
-                <td>{{ $demos -> NgayChieu }}</td>
-                <td>{{ $demos -> NgayKetThuc }}</td>
-                <td>{{ $demos -> ThoiGian }}</td>
-               
-                
-                <td>
-                <img src="" alt="Image" style="width: 70px; height: 40px;">
-                </td>
-                <td>{{ $demos -> Tuoi }}</td>
-             
-                
-                <td class="center"><a href="" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="">An</i></a>
-                </td>
->>>>>>> Stashed changes
-                
+      
                
                 
                    
