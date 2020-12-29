@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\SuatChieuRequest;
+use App\SuatChieu;
+use DB;
 class SuatChieucontroller extends Controller
 {
     /**
@@ -13,7 +15,13 @@ class SuatChieucontroller extends Controller
      */
     public function index()
     {
-        //
+        $sc = SuatChieu::paginate(10);
+        $data =[
+            'sc'=> $sc
+        ]; 
+      
+        return view('admin.suatchieu.danhsach',$data);
+        
     }
 
     /**
@@ -23,7 +31,7 @@ class SuatChieucontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.suatchieu.them');
     }
 
     /**
@@ -32,9 +40,11 @@ class SuatChieucontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SuatChieuRequest $request)
     {
-        //
+        $sc = $request ->except('_token');
+       $id = SuatChieu::insertgetid($sc);
+        return redirect()->back();
     }
 
     /**
@@ -56,7 +66,9 @@ class SuatChieucontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $sc = DB::table('suatchieu')->where('MaSC',$id)->first();
+     
+        return view('admin.suatchieu.sua',compact('sc'));
     }
 
     /**
@@ -66,9 +78,19 @@ class SuatChieucontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SuatChieuRequest $request, $id)
     {
-        //
+        $sc = DB::table('suatchieu')->where('MaSC',$id)->update([
+            'MaSC'=> $request->MaSC,
+            
+            ]);
+        
+        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+    }
+    public function delete($id){
+        $sc = DB::table('suatchieu')->where('MaSC',$id);
+        if($sc) $sc ->delete();
+        return redirect()->back();
     }
 
     /**

@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::group(['prefix'=>'admin'],function(){
     Route::get('/', function () {
         return view('admin.index');
-    });
+    })->name('admin.phim');
 });          
 Route::group(['prefix'=>'Phim'],function(){
     Route::get('','PhimController@index')->name('admin.phim.index');
@@ -36,3 +36,17 @@ Route::group(['prefix'=>'Phim'],function(){
 
 });  
 
+
+Route::group(['prefix'=>'SuatChieu'],function(){
+    Route::get('','SuatChieucontroller@index')->name('admin.suatchieu.index');
+
+    Route::get('create','SuatChieucontroller@create')->name('admin.suatchieu.create');
+    Route::post('create','SuatChieucontroller@store');
+
+    Route::get('update/{id}','SuatChieucontroller@edit')->name('admin.suatchieu.update');
+    Route::post('update/{id}','SuatChieucontroller@update');
+
+    Route::get('delete/{id}','SuatChieucontroller@delete')->name('admin.suatchieu.delete');
+    
+
+});  
