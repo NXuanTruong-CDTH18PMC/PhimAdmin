@@ -7,7 +7,7 @@
 =======
        Danh Sách Phim/
         <a href="" class="btn btn-info" style="margin-top:-8px;">Thêm mới</a>
->>>>>>> Stashed changes
+>>>>>>> Stashed changes()
     </h3>
 @stop
 @section('content')                 
