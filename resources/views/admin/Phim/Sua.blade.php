@@ -82,6 +82,8 @@
                 <div>
                     <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
+                            <option value="2">Ẩn</option>
+                            <option value="1">Hiện</option>
                             <?php  ?>
                     </select>
                 </div>
