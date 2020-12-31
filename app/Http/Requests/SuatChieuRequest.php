@@ -13,11 +13,10 @@ class SuatChieuRequest extends FormRequest
      */
     public function authorize()
     {
-<<<<<<< Updated upstream
+
         return true;
-=======
-        return false;
->>>>>>> Stashed changes
+
+
     }
 
     /**
@@ -28,16 +27,14 @@ class SuatChieuRequest extends FormRequest
     public function rules()
     {
         return [
-<<<<<<< Updated upstream
+
                 'MaSC' => 'required'
         ];
     }
     public function messages() {
         return [
             'required'   => '<div><strong  style="color: red;">Vui lòng không để trống trường này!</strong></div>'
-=======
-            //
->>>>>>> Stashed changes
+
         ];
     }
 }
