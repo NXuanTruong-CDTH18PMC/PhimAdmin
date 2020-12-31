@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\RapRequest;
+use App\rap;
+use DB;
 
 class Rapcontroller extends Controller
 {
@@ -13,7 +16,11 @@ class Rapcontroller extends Controller
      */
     public function index()
     {
-        //
+        $rp = rap::paginate(10);
+           $data =[
+               'rap'=> $rp
+           ];
+        return view('admin.rap.danhsach',$data);
     }
 
     /**
@@ -23,7 +30,7 @@ class Rapcontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.rap.them');
     }
 
     /**
@@ -32,9 +39,11 @@ class Rapcontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RapRequest $request)
     {
-        //
+        $rp = $request ->except('_token');
+        $id = rap::insertgetid($rp);
+        return redirect()->back();
     }
 
     /**
@@ -45,7 +54,7 @@ class Rapcontroller extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.rap.them');
     }
 
     /**
@@ -56,7 +65,9 @@ class Rapcontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $rp = DB::table('rap')->where('MaRap',$id)->first();
+     
+        return view('admin.rap.sua',compact('rp'));
     }
 
     /**
@@ -66,9 +77,19 @@ class Rapcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RapRequest $request, $id)
     {
-        //
+        $rp = DB::table('rap')->where('MaRap',$id)->update([
+            'MaRap'=> $request->MaRap,
+            
+            ]);
+        
+        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+    }
+    public function delete($id){
+        $rp = DB::table('rap')->where('MaRap',$id);
+        if($rp) $rp ->delete();
+        return redirect()->back();
     }
 
     /**
