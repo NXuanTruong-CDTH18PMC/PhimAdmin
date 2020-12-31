@@ -49,3 +49,17 @@ Route::group(['prefix'=>'SuatChieu'],function(){
     
 
 });  
+
+Route::group(['prefix'=>'Rap'],function(){
+    Route::get('','Rapcontroller@index')->name('admin.rap.index');
+
+    Route::get('create','Rapcontroller@create')->name('admin.rap.create');
+    Route::post('create','Rapcontroller@store');
+
+    Route::get('update/{id}','Rapcontroller@edit')->name('admin.rap.update');
+    Route::post('update/{id}','Rapcontroller@update');
+
+    Route::get('delete/{id}','Rapcontroller@delete')->name('admin.rap.delete');
+    
+
+});  
