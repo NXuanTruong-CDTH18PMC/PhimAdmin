@@ -63,3 +63,17 @@ Route::group(['prefix'=>'Rap'],function(){
     
 
 });  
+
+Route::group(['prefix'=>'Phong'],function(){
+    Route::get('','Phongcontroller@index')->name('admin.phong.index');
+
+    Route::get('create','Phongcontroller@create')->name('admin.phong.create');
+    Route::post('create','Phongcontroller@store');
+
+    Route::get('update/{id}','Phongcontroller@edit')->name('admin.phong.update');
+    Route::post('update/{id}','Phongcontroller@update');
+
+    Route::get('delete/{id}','Phongcontroller@delete')->name('admin.phong.delete');
+    
+
+});  
