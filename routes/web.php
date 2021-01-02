@@ -77,3 +77,17 @@ Route::group(['prefix'=>'Phong'],function(){
     
 
 });  
+
+Route::group(['prefix'=>'NhanVien'],function(){
+    Route::get('','NhanViencontroller@index')->name('admin.nhanvien.index');
+
+    Route::get('create','NhanViencontroller@create')->name('admin.nhanvien.create');
+    Route::post('create','NhanViencontroller@store');
+
+    Route::get('update/{id}','NhanViencontroller@edit')->name('admin.nhanvien.update');
+    Route::post('update/{id}','NhanViencontroller@update');
+
+    Route::get('delete/{id}','NhanViencontroller@delete')->name('admin.nhanvien.delete');
+    
+
+});  

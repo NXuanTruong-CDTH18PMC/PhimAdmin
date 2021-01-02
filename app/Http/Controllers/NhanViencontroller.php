@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\NhanVienRequest;
+use App\nhanvien;
+use DB;
 class NhanViencontroller extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class NhanViencontroller extends Controller
      */
     public function index()
     {
-        //
+        $nv = nhanvien::paginate(10);
+           $data =[
+               'nhanvien'=> $nv
+           ];
+        return view('admin.nhanvien.danhsach',$data);
     }
 
     /**
@@ -23,7 +29,7 @@ class NhanViencontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.nhanvien.them');
     }
 
     /**
@@ -32,9 +38,11 @@ class NhanViencontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NhanVienRequest $request)
     {
-        //
+        $nv = $request ->except('_token');
+       $id = NhanVien::insertgetid($nv);
+        return redirect()->back();
     }
 
     /**
@@ -56,7 +64,9 @@ class NhanViencontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $nv = DB::table('nhanvien')->where('MaNV',$id)->first();
+     
+        return view('admin.nhanvien.sua',compact('nv'));
     }
 
     /**
@@ -66,9 +76,19 @@ class NhanViencontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NhanVienRequest $request, $id)
     {
-        //
+        $nv= DB::table('nhanvien')->where('MaNV',$id)->update([
+            'MaNV'=> $request->MaNV,
+            
+            ]);
+        
+        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+    }
+    public function delete($id){
+        $nv = DB::table('nhanvien')->where('MaNV',$id);
+        if($nv) $nv ->delete();
+        return redirect()->back();
     }
 
     /**
