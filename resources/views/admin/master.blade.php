@@ -74,7 +74,7 @@
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.phim.index') }}">Phim</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Thể Loại</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Thành Viên</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Nhân Viên</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{ Route('admin.nhanvien.index') }}">Nhân Viên</a></li>
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.suatchieu.index') }}">Suất Chiếu</a></li>
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.rap.index') }}">Rạp</a></li>
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.phong.index') }}">Phòng</a></li>
