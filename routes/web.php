@@ -91,3 +91,18 @@ Route::group(['prefix'=>'NhanVien'],function(){
     
 
 });  
+
+
+Route::group(['prefix'=>'Gia'],function(){
+    Route::get('','Giacontroller@index')->name('admin.gia.index');
+
+    Route::get('create','Giacontroller@create')->name('admin.gia.create');
+    Route::post('create','Giacontroller@store');
+
+    Route::get('update/{id}','Giacontroller@edit')->name('admin.gia.update');
+    Route::post('update/{id}','Giacontroller@update');
+
+    Route::get('delete/{id}','Giacontroller@delete')->name('admin.gia.delete');
+    
+
+}); 
