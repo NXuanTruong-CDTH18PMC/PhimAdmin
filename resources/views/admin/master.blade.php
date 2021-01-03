@@ -80,7 +80,7 @@
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.phong.index') }}">Phòng</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Ghế</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Loại Ghế</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Giá</a></li>
+                            <li><i class="fa fa-table"></i><a href="{{ Route('admin.gia.index') }}">Giá</a></li>
                         </ul>
                     </li>
                     
