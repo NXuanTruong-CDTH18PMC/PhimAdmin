@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use DB;
+use App\DsVe;
+use App\Http\Requests\DSVeRequest;
 
-class VeChieucontroller extends Controller
+class DsVeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,11 @@ class VeChieucontroller extends Controller
      */
     public function index()
     {
-        //
+        $dsve =dsve::paginate(10);
+           $data =[
+               'dsve'=> $dsve
+           ];
+        return view('admin.dsve.danhsach', $data);
     }
 
     /**
@@ -23,7 +29,7 @@ class VeChieucontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dsve.them');
     }
 
     /**
@@ -32,18 +38,20 @@ class VeChieucontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DSVeRequest $request)
     {
-        //
+        $dsve = $request ->except('_token');
+        $id = dsve::insertgetid($dsve);
+         return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\igrate  $igrate
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(igrate $igrate)
     {
         //
     }
@@ -51,10 +59,10 @@ class VeChieucontroller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\igrate  $igrate
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(igrate $igrate)
     {
         //
     }
@@ -63,10 +71,10 @@ class VeChieucontroller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\igrate  $igrate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, igrate $igrate)
     {
         //
     }
@@ -74,10 +82,10 @@ class VeChieucontroller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\igrate  $igrate
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(igrate $igrate)
     {
         //
     }

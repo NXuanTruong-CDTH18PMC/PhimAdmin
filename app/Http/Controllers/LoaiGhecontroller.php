@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\LoaiGhe;
+use App\Http\Requests\LoaiGheRequest;
 
 class LoaiGhecontroller extends Controller
 {
@@ -13,7 +16,11 @@ class LoaiGhecontroller extends Controller
      */
     public function index()
     {
-        //
+        $loaighe = loaighe::paginate(10);
+        $data =[
+            'loaighe'=> $loaighe
+        ];
+     return view('admin.loaighe.danhsach', $data);
     }
 
     /**
@@ -23,7 +30,7 @@ class LoaiGhecontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.loaighe.them');
     }
 
     /**
@@ -32,9 +39,11 @@ class LoaiGhecontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LoaiGheRequest $request)
     {
-        //
+        $loaighe = $request ->except('_token');
+       $id = loaighe::insertgetid($loaighe);
+        return redirect()->back();
     }
 
     /**
