@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\ThanhVien;
 
-class ThanhViencontroller extends Controller
+use App\Http\Requests\ThanhVienRequest;
+use App\Http\Requests\ThanhVienRequesteidt;
+
+class ThanhViencontroller extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +18,11 @@ class ThanhViencontroller extends Controller
      */
     public function index()
     {
-        //
+        $thanhvien = thanhvien::paginate(10);
+           $data =[
+               'thanhvien'=> $thanhvien
+           ];
+        return view('admin.thanhvien.danhsach', $data);
     }
 
     /**
@@ -23,7 +32,7 @@ class ThanhViencontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.thanhvien.them');
     }
 
     /**
@@ -32,9 +41,12 @@ class ThanhViencontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ThanhVienRequest $request)
     {
-        //
+        $thanhvien = $request ->except('_token');
+       $id = thanhvien::insertgetid($thanhvien);
+        return redirect()->back();
+
     }
 
     /**
@@ -43,6 +55,8 @@ class ThanhViencontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+   
     public function show($id)
     {
         //
@@ -56,7 +70,9 @@ class ThanhViencontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $thanhvien = DB::table('thanhvien')->where('MaTV',$id)->first();
+     
+        return view('admin.thanhvien.sua',compact('thanhvien'));
     }
 
     /**
@@ -66,10 +82,23 @@ class ThanhViencontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ThanhVienRequesteidt $request, $id)
     {
-        //
+        $thanhvien = DB::table('thanhvien')->where('MaTV',$id)->update([
+            'MaTV'=> $request->MaTV,
+            
+            ]);
+        
+        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
     }
+
+
+    public function delete($id){
+        $thanhvien = DB::table('thanhvien')->where('MaTV',$id);
+        if($thanhvien) $thanhvien ->delete();
+        return redirect()->back();
+    }
+
 
     /**
      * Remove the specified resource from storage.
