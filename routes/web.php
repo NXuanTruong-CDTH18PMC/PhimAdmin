@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::group(['prefix'=>'admin'],function(){
     Route::get('/', function () {
         return view('admin.index');
-    });
+    })->name('admin.index');
 });          
 Route::group(['prefix'=>'Phim'],function(){
     Route::get('','PhimController@index')->name('admin.phim.index');
@@ -37,6 +37,7 @@ Route::group(['prefix'=>'Phim'],function(){
 }); 
 Route::group(['prefix'=>'ThanhVien'],function(){
     Route::get('','ThanhVienController@index')->name('admin.thanhvien.index');
+
 
     Route::get('create','ThanhVienController@create')->name('admin.thanhvien.create');
     Route::post('create','ThanhVienController@store');

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PhongRequest;
+use App\phong;
+use DB;
 
 class Phongcontroller extends Controller
 {
@@ -13,7 +16,11 @@ class Phongcontroller extends Controller
      */
     public function index()
     {
-        //
+        $ph = phong::paginate(10);
+           $data =[
+               'phong'=> $ph
+           ];
+        return view('admin.phong.danhsach',$data);
     }
 
     /**
@@ -23,7 +30,7 @@ class Phongcontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.phong.them');
     }
 
     /**
@@ -32,9 +39,11 @@ class Phongcontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PhongRequest $request)
     {
-        //
+        $ph = $request ->except('_token');
+        $id = phong::insertgetid($ph);
+        return redirect()->back();
     }
 
     /**
@@ -45,7 +54,7 @@ class Phongcontroller extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.phong.them');
     }
 
     /**
@@ -56,7 +65,9 @@ class Phongcontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $ph = DB::table('phong')->where('MaPhong',$id)->first();
+     
+        return view('admin.phong.sua',compact('ph'));
     }
 
     /**
@@ -66,9 +77,19 @@ class Phongcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PhongRequest $request, $id)
     {
-        //
+        $ph = DB::table('phong')->where('MaPhong',$id)->update([
+            'MaPhong'=> $request->MaPhong,
+            
+            ]);
+        
+        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+    }
+    public function delete($id){
+        $ph = DB::table('phong')->where('MaPhong',$id);
+        if($ph) $ph ->delete();
+        return redirect()->back();
     }
 
     /**

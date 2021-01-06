@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\GiaRequest;
+use App\gia;
+use DB;
 class Giacontroller extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class Giacontroller extends Controller
      */
     public function index()
     {
-        //
+        $gi = gia::paginate(10);
+           $data =[
+               'gia'=> $gi
+           ];
+        return view('admin.gia.danhsach',$data);
     }
 
     /**
@@ -23,7 +29,7 @@ class Giacontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.gia.them');
     }
 
     /**
@@ -32,9 +38,11 @@ class Giacontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GiaRequest $request)
     {
-        //
+        $gi = $request ->except('_token');
+       $id = Gia::insertgetid($gi);
+        return redirect()->back();
     }
 
     /**
@@ -56,7 +64,9 @@ class Giacontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $gi = DB::table('gia')->where('MaGia',$id)->first();
+     
+        return view('admin.gia.sua',compact('gi'));
     }
 
     /**
@@ -66,9 +76,19 @@ class Giacontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GiaRequest $request, $id)
     {
-        //
+        $gi= DB::table('gia')->where('MaGia',$id)->update([
+            'MaGia'=> $request->MaGia,
+            
+            ]);
+        
+        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+    }
+    public function delete($id){
+        $gi = DB::table('gia')->where('MaGia',$id);
+        if($gi) $gi ->delete();
+        return redirect()->back();
     }
 
     /**

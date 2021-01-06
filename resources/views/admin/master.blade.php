@@ -54,14 +54,14 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="{{asset('backend/images/logo.png')}}" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="{{asset('backend/images/logo2.png')}}" alt="Logo"></a>
+                <a class="navbar-brand" href="{{Route('admin.index')}}"><img src="{{asset('backend/images/logo.png')}}" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="{{Route('admin.index')}}"><img src="{{asset('backend/images/logo2.png')}}" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href=""> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="{{Route('admin.index')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
@@ -73,6 +73,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.phim.index') }}">Phim</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Thể Loại</a></li>
+
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.thanhvien.index') }}">Thành Viên</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Nhân Viên</a></li>
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Suất Chiếu</a></li>
@@ -83,6 +84,7 @@
                             <li><i class="fa fa-table"></i><a href="tables-data.html">Giá</a></li>
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.ve.index') }}">Vé</a></li>
                             <li><i class="fa fa-table"></i><a href="{{ Route('admin.dsve.index') }}">Danh sách vé</a></li>
+
                         </ul>
                     </li>
                     
