@@ -57,8 +57,7 @@
                 <td><span class="text-ellipsis">{{$demos->tl->TenTL}}</span></td>
                 
                 
-                <td></td>
-                
+               
                    
                    
                 </td>
