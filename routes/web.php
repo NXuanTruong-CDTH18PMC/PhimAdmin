@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
- 
+
+Route::get('dangxuat','AdminController@getdangxuat');
+Route::get('profile','AdminController@profile');
+
 Route::group(['prefix'=>'dangnhap'],function(){
     Route::get('/','AdminController@dangnhap')->name('dangnhap');
     Route::post('/','AdminController@postdangnhap')->name('dangnhap');

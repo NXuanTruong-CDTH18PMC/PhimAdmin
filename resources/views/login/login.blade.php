@@ -53,15 +53,27 @@
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>
                 </div>
+
+                
+
                 <div class="login-form">
-                    <form>
+               <?php
+               $message=Session::get('massage');
+               if($message){
+                   echo $message;
+                   Session::put('massage',null);
+               }
+
+               ?>
+                    <form action="{{ Route('dangnhap') }}" method="post">
+                    @csrf
                         <div class="form-group">
                             <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="email" class="form-control" name="email" placeholder="Email" >
                         </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input type="password"  class="form-control" name ="password" placeholder="Password" >
                         </div>
                                 <div class="checkbox">
                                     <label>
@@ -72,7 +84,7 @@
                             </label>
 
                                 </div>
-                                <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+                                <input type="submit" value="Đăng Nhập" name="dangnhap">
                               
                                 <div class="register-link m-t-15 text-center">
                                     <p>Don't have account ? <a href="{{ Route('dangky') }}"> Sign Up Here</a></p>

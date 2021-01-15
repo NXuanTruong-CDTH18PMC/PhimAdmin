@@ -55,26 +55,37 @@
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>
                 </div>
+
+               
+			
+
+
                 <div class="login-form">
-                    <form>
+              
+                    <form action="{{route('dangky')}}" method="post">
+                    @csrf
                         <div class="form-group">
                             <label>User Name</label>
-                            <input type="email" class="form-control" placeholder="User Name">
+                            <input type="name" class="form-control" name="name" placeholder="User Name">
                         </div>
                             <div class="form-group">
                                 <label>Email address</label>
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" class="form-control" name="email" placeholder="Email">
                         </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                                    <label>SDT</label>
+                                    <input type="text" class="form-control" name="sdt" placeholder="So Dien Thoai">
                         </div>
                                     <div class="checkbox">
                                         <label>
                                 <input type="checkbox"> Agree the terms and policy
                             </label>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                                    <button type="submit"  value="Đăng Ký" name="dangky">Register</button>
                                    
                                     <div class="register-link m-t-15 text-center">
                                         <p>Already have account ? <a href="{{ Route('dangnhap') }}"> Sign in</a></p>
