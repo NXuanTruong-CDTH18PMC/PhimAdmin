@@ -18,7 +18,7 @@ class CreateRapsTable extends Migration
             $table->string('TenRap');
             $table->string('DiaChi');
             $table->tinyInteger('SoPhong');
-            $table->tinyInteger('SDT');
+            $table->string('SDT');
             $table->tinyInteger('TrangThai')->default(1);
             $table->timestamps();
         });

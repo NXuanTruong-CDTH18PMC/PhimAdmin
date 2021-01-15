@@ -25,7 +25,7 @@ class RapRequest extends FormRequest
     {
         return [
            
-           'MaRap' => 'required',
+           
            'TenRap'=>'required|unique:Rap,TenRap|max:100|min:3',
            
           

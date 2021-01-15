@@ -18,12 +18,12 @@
         <thead>
            
             <tr>
-                <th>Mã Rạp</th>
                 <th>Tên Rạp</th>
+                <th>Trạng thái</th>
                 <th>Địa chỉ</th>
                 <th>Số phòng</th>
                 <th>Số điện thoại</th>
-                <th>Trạng thái</th>
+                
                 <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
@@ -32,17 +32,22 @@
         @foreach($rap as $rp)
         <tbody>
        
-        <td>{{ $rp -> MaRap }}</td>
                 <td>{{ $rp -> TenRap }}</td>
+                @if ($rp->TrangThai == 1)
+            <td><span class="text-ellipsis text-success">Đang chiếu</span></td>
+            @elseif ($rp->TrangThai == 2 ){
+            <td><span class="text-ellipsis text-primary">Sắp chiếu</span></td>
+                @else
+                <td><span class="text-ellipsis text-danger">Ngưng Hoạt Động</span></td>
+            @endif  
                 <td>{{ $rp -> DiaChi }}</td>
                 <td>{{ $rp -> SoPhong }}</td>
                 <td>{{ $rp -> SDT }}</td>
-                <td>{{ $rp -> TrangThai }}</td>
                
                
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.rap.delete',$rp->MaRap) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.rap.update',$rp->MaRap) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.rap.delete',$rp->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.rap.update',$rp->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                 </td>
            
                
