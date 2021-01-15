@@ -54,7 +54,7 @@
                 </td>
                 <td>{{ $demos -> Tuoi }}</td>
              
-                
+                <td><span class="text-ellipsis">{{$demos->tl->TenTL}}</span></td>
                 
                 
                 <td></td>

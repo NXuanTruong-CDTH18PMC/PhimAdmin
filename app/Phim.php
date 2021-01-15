@@ -11,7 +11,7 @@ class Phim extends Model
             protected $fillable = ['MaPhim','TenPhim','NgayChieu','NgayKetThuc','ThoiGian','Daoien','DienVien','TL','Diem','HinhAnh','Trailer','TrangThai','Tuoi'];
         
             public $timestamps = false;
-            public function TL(){
-                return $this->belongsTo('App\TheLoai','TheLoai','TL');
+            public function tl(){
+                return $this->belongsTo('App\TheLoai','TL','id');
             }
 }
