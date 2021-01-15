@@ -81,7 +81,11 @@ class Rapcontroller extends Controller
     {
         $news = Rap::find($id);
       $news->TenRap = $request->TenRap;
-     
+      $news->TrangThai = $request->TrangThai;
+      $news->DiaChi = $request->DiaChi;
+      $news->SoPhong = $request->SoPhong;
+      $news->SoPhong = $request->SoPhong;
+      $news->SDT = $request->SDT;
 
       $news->save();
         //mà không pít thêm sao

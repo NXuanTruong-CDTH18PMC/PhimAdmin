@@ -21,15 +21,7 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-
-        
-            <div class="form-group">
-                <label>Mã Suất Chiếu</label>
-                <input class="form-control" name="MaSC" value="" placeholder="Mã suất chiếu" />
-                <div>  
-                {!! $errors->first('MaSC') !!}
-            </div>    
-            </div>
+  
             <div class="form-group">
                  <label for="cc-exp" class="control-label mb-1">Thời gian chiếu</label>
                 <input id="cc-exp" name="ThoiGianChieu" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid time" placeholder="Giờ bắt đầu" autocomplete="cc-exp">
@@ -46,8 +38,8 @@
                 <div>
                     <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Đang Chiếu</option>
+                            <option value="2">Sắp Chiếu</option>
                             <?php  ?>
                     </select>
                 </div>

@@ -52,8 +52,8 @@
                 <div>
                 <select id="input" name="TrangThai" value="{{$rap->TrangThai}}" class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="1">Đang Chiếu</option>
-                            <option value="2">Sắp Chiếu</option>
+                            <option value="1">Đang hoạt động</option>
+                            <option value="2">Tạm ngưng hoạt động</option>
                             <?php  ?>
                     </select>
                 </div>

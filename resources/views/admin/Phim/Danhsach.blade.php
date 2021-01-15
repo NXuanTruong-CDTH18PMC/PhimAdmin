@@ -20,7 +20,7 @@
             <tr>
                 
                 <th>Tên Phim</th>
-                <th>TT</th>
+                <th>Trạng thái</th>
                 <th>Ngày chiếu</th>
                 <th>Ngày kết thúc</th>
                 <th>Thời gian</th>
@@ -40,9 +40,9 @@
                 @if ($demos->TrangThai == 1)
             <td><span class="text-ellipsis text-success">Đang Chiếu</span></td>
             @elseif ($demos->trangthai == 2 ){
-            <td><span class="text-ellipsis text-primary">sáp Chiếu</span></td>
+            <td><span class="text-ellipsis text-primary">Sắp Chiếu</span></td>
                 @else
-                <td><span class="text-ellipsis text-danger">Ngưng Hoạt Động</span></td>
+                <td><span class="text-ellipsis text-danger">Dừng Chiếu</span></td>
             @endif  
                 <td>{{ $demos -> NgayChieu }}</td>
                 <td>{{ $demos -> NgayKetThuc }}</td>

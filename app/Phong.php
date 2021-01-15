@@ -8,7 +8,8 @@ class Phong extends Model
 {
     protected $table = "Phong";
 
-            protected $fillable = ['MaPhong','TenPhong','SoLuongGhe','MaRap','TrangThai'];
+            protected $fillable = ['id','TenPhong','SoLuongGhe','Rap','TrangThai'];
         
             public $timestamps = false;
+        
 }

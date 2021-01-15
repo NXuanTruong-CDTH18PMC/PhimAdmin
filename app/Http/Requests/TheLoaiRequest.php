@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SuatChieuRequest extends FormRequest
+class TheLoaiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,10 +13,7 @@ class SuatChieuRequest extends FormRequest
      */
     public function authorize()
     {
-
         return true;
-
-
     }
 
     /**
@@ -27,14 +24,14 @@ class SuatChieuRequest extends FormRequest
     public function rules()
     {
         return [
-
-                
+            'TenTL'=>'required|unique:TheLoai,TenTL|max:100|min:3'
         ];
     }
     public function messages() {
         return [
-            'required'   => '<div><strong  style="color: red;">Vui lòng không để trống trường này!</strong></div>'
-
+            'TenTL.unique'     => '<div><strong  style="color: red;"> đã tồn tại!</strong></div>',
+            'TenTL.max'   => '<div><strong  style="color: red;"> vượt quá độ dài cho phép!</strong></div>',
+            'TenTL.min'   => '<div><strong  style="color: red;"> ngắn hơns độ dài cho phép!</strong></div>'
         ];
     }
 }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TheLoaiRequest;
+use App\theloai;
+use DB;
 
 class TheLoaicontroller extends Controller
 {
@@ -13,7 +16,11 @@ class TheLoaicontroller extends Controller
      */
     public function index()
     {
-        
+        $tl = TheLoai::paginate(10);
+           $data =[
+               'theloai'=> $tl
+           ];
+        return view('admin.theloai.danhsach',$data);
     }
 
     /**
@@ -23,7 +30,7 @@ class TheLoaicontroller extends Controller
      */
     public function create()
     {
-        
+        return view('admin.theloai.them');
     }
 
     /**
@@ -34,7 +41,9 @@ class TheLoaicontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tl = $request ->except('_token');
+        $tl = TheLoai::insertgetid($tl);
+        return redirect()->back();
     }
 
     /**
@@ -56,7 +65,9 @@ class TheLoaicontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $tl= TheLoai::where('id',$id)->first();
+     
+        return view('admin.theloai.sua',['theloai'=>$tl]);
     }
 
     /**
@@ -66,11 +77,20 @@ class TheLoaicontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TheLoaiRequest $request, $id)
     {
-        //
+        $news = TheLoai::find($id);
+      $news->TenTL = $request->TenTL;
+      $news->save();
+        //mà không pít thêm sao
+        
+        return redirect()->action('TheLoaicontroller@index');
     }
-
+    public function delete($id){
+        $tl = TheLoai::where('id',$id)->first();
+        $tl->save();
+        return redirect()->back()->with('thongbao', 'Thành Công');
+    }
     /**
      * Remove the specified resource from storage.
      *

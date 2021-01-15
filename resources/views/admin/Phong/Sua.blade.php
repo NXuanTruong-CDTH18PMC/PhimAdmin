@@ -21,19 +21,12 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Phòng</label>
-                <input class="form-control" name="MaPhong" value="{{ $ph -> MaPhong }}" placeholder="Mã Phòng" />
-                <div>
-                {!! $errors->first('MaPhong') !!}
-                
-            </div>
                 <div>    
             </div>    
             </div>
                 <div class="form-group">
                 <label>Tên Phòng</label>
-                <input class="form-control" name="TenPhong" value="{{ $ph -> TenPhong }}" placeholder="Tên Phòng" />
+                <input class="form-control" name="TenPhong" value="{{ $phong -> TenPhong }}" placeholder="Tên Phòng" />
                 <div>
                 {!! $errors->first('TenPhong') !!}
             </div>
@@ -44,23 +37,22 @@
             
             <div class="form-group">
                 <label>Số Lượng Ghế</label>
-                <input class="form-control" name="SoLuongGhe" value="{{ $ph -> SoLuongGhe }}" placeholder="Số Lượng Ghế" />
+                <input class="form-control" name="SoLuongGhe" value="{{ $phong -> SoLuongGhe }}" placeholder="Số Lượng Ghế" />
                 <div>    
             </div>  
             <div class="form-group">
                 <label>Mã Rạp</label>
-                <input class="form-control" name="MaRap" value="{{ $ph -> MaRap }}" placeholder="Mã Rạp" />
+                <input class="form-control" name="Rap" value="{{$phong -> Rap}}" placeholder="Mã Rạp" />
                 <div>    
             </div>  
-            {!! $errors->first('MaRap') !!}
                 
             <div class="form-group">
                 <label for="input" >Trạng Thái</label>
                 <div>
-                    <select id="input" name="TrangThai"  class="form-control">
+                    <select id="input" name="TrangThai" value="{{ $phong -> TrangThai }}" class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Đang hoạt động</option>
+                            <option value="2">Tạm ngưng hoạt động</option>
                             <?php  ?>
                     </select>
                 </div>

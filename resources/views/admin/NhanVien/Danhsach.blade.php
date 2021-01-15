@@ -18,8 +18,8 @@
         <thead>
            
             <tr>
-                <th>Mã Nhân Viên</th>
                 <th>Tên Nhân Viên</th>
+                <th>Trạng thái</th>
                 <th>CMND</th>
                 <th>Số điện thoại</th>
                 <th>Địa chỉ</th>
@@ -28,7 +28,6 @@
                 <th>Hình ảnh</th>
                 <th>Tên tài khoản</th>
                 <th>Mật khẩu</th>
-                <th>Trạng thái</th>
                 <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
@@ -36,13 +35,18 @@
         </thead>
         @foreach($nhanvien as $nv)
         <tbody>
-       
-        <td>{{ $nv -> MaNV }}</td>
                 <td>{{ $nv -> TenNV }}</td>
+                @if ($nv->TrangThai == 1)
+            <td><span class="text-ellipsis text-success">Đang hoạt động</span></td>
+            @elseif ($nv->TrangThai == 2 ){
+            <td><span class="text-ellipsis text-primary">Ngưng hoạt động</span></td>
+                @else
+                <td><span class="text-ellipsis text-danger">Không Hoạt Động</span></td>
+            @endif  
                 <td>{{ $nv -> CMND }}</td>
                 <td>{{ $nv -> SDT }}</td>
                 <td>{{ $nv -> DiaChi }}</td>
-                <td>{{ $nv -> MaRap }}</td>
+                <td>{{$nv -> Rap}}</td>
                 <td>{{ $nv -> Email }}</td>
                 
                 <td>
@@ -50,7 +54,6 @@
                 </td>
                 <td>{{ $nv -> TenTK }}</td>
                 <td>{{ $nv -> MK }}</td>
-                <td>{{ $nv -> TrangThai }}</td>
                 
                 
                 
@@ -59,8 +62,8 @@
                    
                    
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.nhanvien.delete',$nv->MaNV) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.nhanvien.update',$nv->MaNV) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.nhanvien.delete',$nv->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.nhanvien.update',$nv->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                 </td>
            
                

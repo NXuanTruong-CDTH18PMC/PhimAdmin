@@ -8,7 +8,7 @@ class SuatChieu extends Model
 {
     protected $table = "SuatChieu";
 
-            protected $fillable = ['MaSC','ThoiGianChieu','TrangThai'];
+            protected $fillable = ['id','ThoiGianChieu','TrangThai'];
         
             public $timestamps = false;
 }

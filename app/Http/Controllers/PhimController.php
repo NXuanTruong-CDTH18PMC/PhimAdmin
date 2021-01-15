@@ -19,7 +19,7 @@ class PhimController extends AdminController
     public function index()
     {
        
-        $demo = phim::paginate(10);
+        $demo = Phim::paginate(10);
            $data =[
                'demo'=> $demo
            ];
