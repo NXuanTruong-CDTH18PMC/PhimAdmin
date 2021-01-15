@@ -2,8 +2,8 @@
 @section('title')
     <h3 class="page-header ">
 
-       Giá/
-        <a href="{{ Route('admin.gia.create') }} " class="btn btn-info" style="margin-top:-8px;">Thêm mới</a>
+       Thể loại/
+        <a href="{{ Route('admin.theloai.create') }} " class="btn btn-info" style="margin-top:-8px;">Thêm mới</a>
 
        
     </h3>
@@ -25,36 +25,21 @@
           
             <tr>
                 <th>Tên Thể Loại</th>
-                
+                <th>Xóa</th>
+                <th>Sửa</th>
             </tr>
             
         </thead>
 
-        @foreach($gia as $gi)
+        @foreach($theloai as $tl)
        
         <tbody>
        
-                <td>{{$gi->MaGia}}</td>
-               
-               
-                
-                
-                
-             
-                
-               
-
-      
-               
-                
-                   
-                   
-
-              
+                <td>{{$tl->TenTL}}</td>
+     
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.gia.delete',$gi->MaGia) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-               
-
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.theloai.delete',$tl->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.theloai.update',$tl->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                 </td>
            
                

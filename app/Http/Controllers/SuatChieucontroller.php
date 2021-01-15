@@ -66,9 +66,9 @@ class SuatChieucontroller extends Controller
      */
     public function edit($id)
     {
-        $sc = DB::table('suatchieu')->where('MaSC',$id)->first();
+        $sc= Suatchieu::where('id',$id)->first();
      
-        return view('admin.suatchieu.sua',compact('sc'));
+        return view('admin.suatchieu.sua',['suatchieu'=>$sc]);
     }
 
     /**
@@ -80,17 +80,19 @@ class SuatChieucontroller extends Controller
      */
     public function update(SuatChieuRequest $request, $id)
     {
-        $sc = DB::table('suatchieu')->where('MaSC',$id)->update([
-            'MaSC'=> $request->MaSC,
-            
-            ]);
+        $news = suatchieu::find($id);
+      $news->ThoiGianChieu = $request->ThoiGianChieu;
+
+      $news->save();
+        //mà không pít thêm sao
         
-        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->action('SuatChieucontroller@index');
     }
     public function delete($id){
-        $sc = DB::table('suatchieu')->where('MaSC',$id);
-        if($sc) $sc ->delete();
-        return redirect()->back();
+        $sc = suatchieu::where('id',$id)->first();
+        $sc->trangthai = 0;
+        $sc->save();
+        return redirect()->back()->with('thongbao', 'Thành Công');
     }
 
     /**

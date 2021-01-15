@@ -34,11 +34,11 @@
        
                 <td>{{ $rp -> TenRap }}</td>
                 @if ($rp->TrangThai == 1)
-            <td><span class="text-ellipsis text-success">Đang chiếu</span></td>
-            @elseif ($rp->TrangThai == 2 ){
-            <td><span class="text-ellipsis text-primary">Sắp chiếu</span></td>
+            <td><span class="text-ellipsis text-success">Đang hoạt động</span></td>
+            @elseif ($rp->TrangThai == 2 )
+            <td><span class="text-ellipsis text-primary">Tạm ngưng hoạt động</span></td>
                 @else
-                <td><span class="text-ellipsis text-danger">Ngưng Hoạt Động</span></td>
+                <td><span class="text-ellipsis text-danger">Không Hoạt Động</span></td>
             @endif  
                 <td>{{ $rp -> DiaChi }}</td>
                 <td>{{ $rp -> SoPhong }}</td>

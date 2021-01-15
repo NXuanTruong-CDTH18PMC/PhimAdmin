@@ -16,7 +16,7 @@ class CreateNhanViensTable extends Migration
         Schema::create('nhanvien', function (Blueprint $table) {
             $table->increments('id');
             $table->string('TenNV');
-            $table->tinyInteger('CMND');
+            $table->string('CMND');
             $table->string('SDT');
             $table->string('DiaChi')->nullable();
             $table->integer('Rap')->unsigned();

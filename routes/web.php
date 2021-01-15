@@ -185,3 +185,16 @@ Route::group(['prefix'=>'LoaiGhe'],function(){
     
 
 });
+Route::group(['prefix'=>'TheLoai'],function(){
+    Route::get('','TheLoaicontroller@index')->name('admin.theloai.index');
+
+    Route::get('create','TheLoaicontroller@create')->name('admin.theloai.create');
+    Route::post('create','TheLoaicontroller@store');
+
+    Route::get('update/{id}','TheLoaicontroller@edit')->name('admin.theloai.update');
+    Route::post('update/{id}','TheLoaicontroller@update');
+
+    Route::get('delete/{id}','TheLoaicontroller@delete')->name('admin.theloai.delete');
+    
+
+});

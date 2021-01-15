@@ -21,55 +21,43 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Nhân Viên</label>
-                <input class="form-control" name="MaNV" value="{{ $nv -> MaNV }}" placeholder="Mã Nhân Viên" />
-                <div>
-                {!! $errors->first('MaNV') !!}
-                
-            </div>
-                <div>    
-            </div>    
-            </div>
                 <div class="form-group">
                 <label>Tên Nhân Viên</label>
-                <input class="form-control" name="TenPhim" value="{{ $nv -> TenNV }}" placeholder="Tên Nhân Viên" />
+                <input class="form-control" name="TenNV" value="{{ $nhanvien -> TenNV }}" placeholder="Tên Nhân Viên" />
                 <div>
-                {!! $errors->first('TenNV') !!}
             </div>
             </div>
             
             
             <div class="form-group">
                 <label>CMND</label>
-                <textarea class="form-control" rows="2" name="CMND" placeholder="CMND"></textarea>
+                <textarea class="form-control" rows="2" name="CMND" value="{{ $nhanvien -> CMND }}" placeholder="CMND"></textarea>
                 <script type="text/javascript"> </script>
             <div>
             <div class="form-group">
                 <label>Số điện thoại</label>
-                <textarea class="form-control" rows="2" name="SDT" placeholder="Số điện thoại"></textarea>
+                <textarea class="form-control" rows="2" name="SDT" value="{{ $nhanvien -> SDT }}" placeholder="Số điện thoại"></textarea>
                 <script type="text/javascript"> </script>
             <div>
             <div class="form-group">
                 <label>Địa chỉ</label>
-                <textarea class="form-control" rows="2" name="DiaChi" placeholder="Địa chỉ"></textarea>
+                <textarea class="form-control" rows="2" name="DiaChi" value="{{ $nhanvien -> DiaChi }}" placeholder="Địa chỉ"></textarea>
                 <script type="text/javascript"> </script>
             <div>
             <div class="form-group">
                 <label>Mã Rạp</label>
-                <input class="form-control" name="MaRap" value="{{ $nv -> MaRap }}" placeholder="Mã Rạp" />
+                <input class="form-control" name="Rap" value="{{ $nhanvien -> Rap }}" placeholder="Mã Rạp" />
                 <div>    
-                {!! $errors->first('MaRap') !!}
             </div>  
            
             <div class="form-group">
                 <label>Email</label>
-                <textarea class="form-control" rows="2" name="Email" placeholder="Email"></textarea>
+                <textarea class="form-control" rows="2" name="Email" value="{{ $nhanvien -> Email }}" placeholder="Email"></textarea>
                 <script type="text/javascript"> </script>
             <div>
                 <div class="form-group">
                     <label>Hình ảnh </label>
-                    <input type="file" name="Hinh" value="{{ $nv -> Hinh }}" >
+                    <input type="file" name="Hinh" value="{{ $nhanvien -> Hinh }}" >
                     
                         
                     </div>
@@ -77,22 +65,22 @@
 
                 <div class="form-group">
                 <label>Tên tài khoản</label>
-                <input class="form-control" name="TenTK" value="{{ $nv -> TenTK }}" placeholder="Tên tài khoản" />
+                <input class="form-control" name="TenTK" value="{{ $nhanvien -> TenTK }}" placeholder="Tên tài khoản" />
                 <div>    
             </div>  
             <div class="form-group">
                 <label>Mật khẩu</label>
-                <input class="form-control" name="MK" value="{{ $nv -> MK }}" placeholder="Mật khẩu" />
+                <input class="form-control" name="MK" value="{{ $nhanvien -> MK }}" placeholder="Mật khẩu" />
                 <div>    
             </div>  
                 
             <div class="form-group">
                 <label for="input" >Trạng Thái</label>
                 <div>
-                    <select id="input" name="TrangThai"  class="form-control">
+                    <select id="input" name="TrangThai" value="{{ $nhanvien -> TrangThai }}" class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Đang hoạt động</option>
+                            <option value="2">Ngưng hoạt động</option>
                             <?php  ?>
                     </select>
                 </div>

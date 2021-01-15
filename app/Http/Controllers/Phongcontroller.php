@@ -54,7 +54,7 @@ class Phongcontroller extends Controller
      */
     public function show($id)
     {
-        return view('admin.phong.them');
+       //
     }
 
     /**
@@ -65,9 +65,9 @@ class Phongcontroller extends Controller
      */
     public function edit($id)
     {
-        $ph = DB::table('phong')->where('MaPhong',$id)->first();
+        $ph= Phong::where('id',$id)->first();
      
-        return view('admin.phong.sua',compact('ph'));
+        return view('admin.phong.sua',['phong'=>$ph]);
     }
 
     /**
@@ -79,17 +79,24 @@ class Phongcontroller extends Controller
      */
     public function update(PhongRequest $request, $id)
     {
-        $ph = DB::table('phong')->where('MaPhong',$id)->update([
-            'MaPhong'=> $request->MaPhong,
-            
-            ]);
+        $news = phong::find($id);
+      $news->TenPhong = $request->TenPhong;
+      $news->SoLuongGhe = $request->SoLuongGhe;
+      $news->Rap = $request->Rap;
+      
+      $news->TrangThai = $request->TrangThai;
+    
+
+      $news->save();
+        //mà không pít thêm sao
         
-        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->action('Phongcontroller@index');
     }
     public function delete($id){
-        $ph = DB::table('phong')->where('MaPhong',$id);
-        if($ph) $ph ->delete();
-        return redirect()->back();
+        $ph = phong::where('id',$id)->first();
+  $ph->trangthai = 0;
+  $ph->save();
+  return redirect()->back()->with('thongbao', 'Thành Công');
     }
 
     /**

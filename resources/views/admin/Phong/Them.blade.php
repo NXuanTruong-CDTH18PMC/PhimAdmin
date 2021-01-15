@@ -21,12 +21,6 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Phòng</label>
-                <input class="form-control" name="MaPhong" value="" placeholder="Mã Phòng" />
-                <div>    
-            </div>    
-            </div>
                 <div class="form-group">
                 <label>Tên Phòng</label>
                 
@@ -43,16 +37,16 @@
             </div>  
             <div class="form-group">
                 <label>Mã Rạp</label>
-                <input class="form-control" name="MaRap" value="" placeholder="Mã Rạp" />
+                <input class="form-control" name="Rap" value="" placeholder="Mã Rạp" />
                 <div>    
             </div>            
             <div class="form-group">
                 <label for="input" >Trạng Thái</label>
                 <div>
-                    <select id="input" name="TrangThai"  class="form-control">
+                <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Đang hoạt động</option>
+                            <option value="2">Tạm ngưng hoạt động</option>
                             <?php  ?>
                     </select>
                 </div>

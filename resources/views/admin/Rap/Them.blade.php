@@ -21,11 +21,7 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Rạp Phim</label>
-                <input class="form-control" name="id" value="" placeholder="Mã Rạp" />
-                <div>    
-                {!! $errors->first('id') !!}
+        <div>    
             </div>    
             </div>
                 <div class="form-group">
@@ -65,9 +61,9 @@
                 <div>
                 <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="1">Đang Chiếu</option>
-                            <option value="2">Sắp Chiếu</option>
-                            <?php  ?>
+                            <option value="1">Đang hoạt động</option>
+                            <option value="2">Tạm ngưng hoạt động</option>
+                            <?php ?>
                     </select>
                 </div>
                 <div>

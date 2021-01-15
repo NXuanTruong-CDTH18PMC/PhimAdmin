@@ -18,25 +18,29 @@
         <thead>
            
             <tr>
-                <th>Mã Phòng</th>
                 <th>Tên Phòng</th>
+                <th>Trạng Thái</th>
                 <th>Số Lượng Ghế</th>
                 <th>Mã Rạp</th>
-                <th>Trạng Thái</th>
                 <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
             
         </thead>
-        @foreach($phong as $ph)
+        @foreach($phong as  $ph)
         <tbody>
-       
-        <td>{{ $ph -> MaPhong }}</td>
                 <td>{{ $ph -> TenPhong }}</td>   
+                @if ($ph->TrangThai == 1)
+            <td><span class="text-ellipsis text-success">Đang hoạt động</span></td>
+            @elseif ($ph->TrangThai == 2 ){
+            <td><span class="text-ellipsis text-primary">Tạm ngưng hoạt động</span></td>
+                @else
+                <td><span class="text-ellipsis text-danger">Không Hoạt Động</span></td>
+            @endif  
                 <td>{{ $ph -> SoLuongGhe }}</td>
 
-             <td>{{ $ph -> MaRap }}</td>
-             <td>{{ $ph -> TrangThai }}</td>
+                <td>{{$ph -> Rap}}</td>
+                
                 
                
                 
@@ -44,8 +48,8 @@
                    
                 
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.phong.delete',$ph->MaPhong) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.phong.update',$ph->MaPhong) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.phong.delete',$ph->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.phong.update',$ph->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                 </td>
            
                

@@ -21,12 +21,6 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Nhân Viên</label>
-                <input class="form-control" name="MaNV" value="" placeholder="Mã Nhân Viên" />
-                <div>    
-            </div>    
-            </div>
                 <div class="form-group">
                 <label>Tên Nhân Viên</label>
                 
@@ -54,9 +48,8 @@
             <div>
             <div class="form-group">
                 <label>Mã Rạp</label>
-                <input class="form-control" name="MaRap" value="" placeholder="Mã Rạp" />
+                <input class="form-control" name="Rap" value="" placeholder="Mã Rạp" />
                 <div>    
-                {!! $errors->first('MaRap') !!}
             </div>  
             <div class="form-group">
                 <label>Email</label>
@@ -86,8 +79,8 @@
                 <div>
                     <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Đang hoạt động</option>
+                            <option value="2">Ngưng hoạt động</option>
                             <?php  ?>
                     </select>
                 </div>

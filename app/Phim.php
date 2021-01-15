@@ -8,7 +8,7 @@ class Phim extends Model
 {
     protected $table = "Phim";
 
-            protected $fillable = ['MaPhim','TenPhim','NgayChieu','NgayKetThuc','ThoiGian','Daoien','DienVien','TL','Diem','HinhAnh','Trailer','TrangThai','Tuoi'];
+            protected $fillable = ['id','TenPhim','NgayChieu','NgayKetThuc','ThoiGian','Daoien','DienVien','TL','Diem','HinhAnh','Trailer','TrangThai','Tuoi'];
         
             public $timestamps = false;
             public function tl(){

@@ -25,9 +25,8 @@ class PhongRequest extends FormRequest
     {
         return [
            
-            'MaPhong' => 'required',
+           
             'TenPhong'=>'required|unique:Phong,TenPhong|max:100|min:3',
-            'MaRap' => 'required'
            
              //
          ];

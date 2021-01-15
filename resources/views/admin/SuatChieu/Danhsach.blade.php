@@ -24,11 +24,8 @@
         <thead>
           
             <tr>
-                <th>Mã Suất chiếu</th>
                 <th>Thời gian chiếu</th>
                 <th>Trạng thái</th>
-
-
                 <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
@@ -39,28 +36,18 @@
        
         <tbody>
        
-                <td>{{$sc->MaSC}}</td>
                 <td>{{$sc->ThoiGianChieu}}</td>
-                <td>{{$sc->TrangThai}}</td>
-                
-               
-                
-                
-                
-             
-                
-               
+                @if ($sc->TrangThai == 1)
+            <td><span class="text-ellipsis text-success">Đang Chiếu</span></td>
+            @elseif ($sc->TrangThai == 2 )
+            <td><span class="text-ellipsis text-primary">Sắp Chiếu</span></td>
+                @else
+                <td><span class="text-ellipsis text-danger">Ngưng Chiếu</span></td>
+            @endif  
 
-      
-               
-                
-                   
-                   
-
-              
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.suatchieu.delete',$sc->MaSC) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.suatchieu.update',$sc->MaSC) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.suatchieu.delete',$sc->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.suatchieu.update',$sc->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
 
                 </td>
            

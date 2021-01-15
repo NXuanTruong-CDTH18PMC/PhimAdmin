@@ -21,18 +21,11 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Suất Chiếu</label>
-                <input class="form-control" name="MaSC" value="{{ $sc -> MaSC }}" placeholder="Mã Suất Chiếu" />
-                <div>
-                {!! $errors->first('MaSC') !!}
-                </div>
-               
-                
-            </div>
+            
+            
                 <div class="form-group">
                 <label>Thời Gian Chiếu</label>
-                <input class="form-control" name="ThoiGianChieu" value="" placeholder="Thời Gian Chiếu" />
+                <input class="form-control" name="ThoiGianChieu" value="{{ $suatchieu -> ThoiGianChieu }}" placeholder="Thời Gian Chiếu" />
                 <div>
             </div>
             </div>
@@ -48,10 +41,10 @@
             <div class="form-group">
                 <label for="input" >Trạng Thái</label>
                 <div>
-                    <select id="input" name="TrangThai"  class="form-control">
+                    <select id="input" name="TrangThai"  value="{{ $suatchieu -> TrangThai }}" class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="2">Sắp chiếu</option>
+                            <option value="1">Đang chiếu</option>
                             <?php  ?>
                     </select>
                 </div>

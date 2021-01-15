@@ -15,7 +15,7 @@ class NhanViencontroller extends Controller
      */
     public function index()
     {
-        $nv = nhanvien::paginate(10);
+        $nv = NhanVien::paginate(10);
            $data =[
                'nhanvien'=> $nv
            ];
@@ -64,9 +64,9 @@ class NhanViencontroller extends Controller
      */
     public function edit($id)
     {
-        $nv = DB::table('nhanvien')->where('MaNV',$id)->first();
+        $nhanvien= NhanVien::where('id',$id)->first();
      
-        return view('admin.nhanvien.sua',compact('nv'));
+        return view('admin.nhanvien.sua',['nhanvien'=>$nhanvien]);
     }
 
     /**
@@ -78,17 +78,29 @@ class NhanViencontroller extends Controller
      */
     public function update(NhanVienRequest $request, $id)
     {
-        $nv= DB::table('nhanvien')->where('MaNV',$id)->update([
-            'MaNV'=> $request->MaNV,
-            
-            ]);
+        $news = NhanVien::find($id);
+      $news->TenNV = $request->TenNV;
+      $news->TrangThai = $request->TrangThai;
+      $news->SDT = $request->SDT;
+      $news->DiaChi = $request->DiaChi;
+      $news->Rap = $request->Rap;
+      $news->Email = $request->Email;
+      $news->Hinh = $request->Hinh;
+      $news->TenTK = $request->TenTK;
+      $news->MK = $request->MK;
+
+     
+
+      $news->save();
+        //mà không pít thêm sao
         
-        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->action('NhanViencontroller@index');
     }
     public function delete($id){
-        $nv = DB::table('nhanvien')->where('MaNV',$id);
-        if($nv) $nv ->delete();
-        return redirect()->back();
+        $nv = NhanVien::where('id',$id)->first();
+  $nv->trangthai = 0;
+  $nv->save();
+  return redirect()->back()->with('thongbao', 'Thành Công');
     }
 
     /**
