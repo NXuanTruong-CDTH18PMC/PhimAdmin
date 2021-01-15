@@ -14,13 +14,15 @@ class CreateGhesTable extends Migration
     public function up()
     {
         Schema::create('ghe', function (Blueprint $table) {
-            $table->increments('MaGhe');
-            $table->integer('MaLoaiGhe')->unsigned();
+            $table->increments('id');
+            $table->integer('LoaiGhe')->unsigned();
+            $table->integer('Rap')->unsigned();
             $table->tinyInteger('SoHang');
             $table->string('SoCot');
             $table->timestamps();
 
-            $table->foreign('MaLoaiGhe')->references('MaLoaiGhe')->on('loaighe');
+            $table->foreign('LoaiGhe')->references('id')->on('loaighe');
+            $table->foreign('Rap')->references('id')->on('rap');
         });
     }
 

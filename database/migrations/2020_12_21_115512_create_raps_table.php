@@ -14,7 +14,7 @@ class CreateRapsTable extends Migration
     public function up()
     {
         Schema::create('rap', function (Blueprint $table) {
-            $table->increments('MaRap');
+            $table->increments('id');
             $table->string('TenRap');
             $table->string('DiaChi');
             $table->tinyInteger('SoPhong');

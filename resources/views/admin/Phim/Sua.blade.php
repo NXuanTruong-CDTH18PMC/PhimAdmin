@@ -21,26 +21,20 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Phim</label>
-                <input class="form-control" name="MaPhim" value="{{ $demo -> MaPhim }}" placeholder="Mã Phim" />
-                <div>
-                {!! $errors->first('MaPhim') !!}
-                
-            </div>
+            
                 <div>    
             </div>    
             </div>
                 <div class="form-group">
                 <label>Tên Phim</label>
-                <input class="form-control" name="TenPhim" value="{{ $demo -> TenPhim }}" placeholder="Tên PHim..." />
+                <input class="form-control" name="TenPhim" value="{{$Phim->TenPhim}}" placeholder="Tên PHim..." />
                 <div>
                 {!! $errors->first('TenPhim') !!}
             </div>
             </div>
             <div class="form-group">
                  <label for="cc-exp" class="control-label mb-1">Ngày Chiếu</label>
-                <input id="cc-exp" name="NgayChieu" type="tel" class="form-control cc-exp" value="{{ $demo -> NgayChieu }}" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="DD/MM" autocomplete="cc-exp">
+                <input id="cc-exp" name="NgayChieu" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="DD/MM" autocomplete="cc-exp">
                 <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                </div>
             <div class="form-group">
@@ -65,13 +59,13 @@
             <div>
             <div class="form-group">
                 <label>Diem</label>
-                <input class="form-control" name="Diem" value="{{ $demo -> Diem }}" placeholder="Tuổi" />
+                <input class="form-control" name="Diem" value="" placeholder="Tuổi" />
                 <div>    
             </div>  
            
                 <div class="form-group">
                     <label>Hình ảnh </label>
-                    <input type="file" name="HinhAnh" value="{{ $demo -> HinhAnh }}" >
+                    <input type="file" name="HinhAnh" value="" >
                     
                         
                     </div>
@@ -82,8 +76,8 @@
                 <div>
                     <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Sắp Chiếu</option>
+                            <option value="2">Đang Chiếu</option>
                             <?php  ?>
                     </select>
                 </div>

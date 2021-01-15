@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+ 
+Route::group(['prefix'=>'dangnhap'],function(){
+    Route::get('/','AdminController@dangnhap')->name('dangnhap');
+    Route::post('/','AdminController@postdangnhap')->name('dangnhap');
+});
+Route::group(['prefix'=>'dangky'],function(){
+    Route::get('/','AdminController@dangky')->name('dangky');
+    Route::post('/','AdminController@postdangky')->name('dangky');
+});
+
+
 
 Route::group(['prefix'=>'admin'],function(){
     Route::get('/', function () {

@@ -16,12 +16,12 @@ class CreatePhimsTable extends Migration
         Schema::create('phim', function (Blueprint $table) {
             
         
-            $table->increments('MaPhim');
+            $table->increments('id');
             $table ->string('TenPhim');
             $table ->date('NgayChieu');
             $table ->date('NgayKetThuc');
             $table ->string('ThoiGian');
-            $table->integer('MaTL')->unsigned();
+            $table->integer('TL')->unsigned();
             $table ->string('DaoDien')->nullable();
             $table->string('DienVien')->nullable(); 
             $table->tinyInteger('Diem')->nullable();
@@ -32,7 +32,7 @@ class CreatePhimsTable extends Migration
             $table->timestamps();
            
             
-            $table->foreign('MaTL')->references('MaTL')->on('theloai');
+            $table->foreign('TL')->references('id')->on('theloai');
             
         });
     }

@@ -14,15 +14,15 @@ class CreateDsVesTable extends Migration
     public function up()
     {
         Schema::create('dsve', function (Blueprint $table) {
-            $table->increments('MaDS');
+            $table->increments('id');
             $table->tinyInteger('SoLuong');
-            $table->integer('MaVe')->unsigned();
-            $table->integer('MaTV')->unsigned();
+            $table->integer('Ve')->unsigned();
+            $table->integer('TV')->unsigned();
             $table->date('NgayTao');
             $table->timestamps();
 
-            $table->foreign('MaVe')->references('MaVe')->on('ve');
-            $table->foreign('MaTV')->references('MaTV')->on('thanhvien');
+            $table->foreign('Ve')->references('id')->on('ve');
+            $table->foreign('TV')->references('id')->on('thanhvien');
         });
     }
 

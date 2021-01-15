@@ -14,7 +14,7 @@ class CreateSuatChieusTable extends Migration
     public function up()
     {
         Schema::create('suatchieu', function (Blueprint $table) {
-            $table->increments('MaSC');
+            $table->increments('id');
             $table->time('ThoiGianChieu');
             $table->tinyInteger('TrangThai')->default(1);
             $table->timestamps();

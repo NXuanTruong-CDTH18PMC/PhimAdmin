@@ -14,12 +14,12 @@ class CreateLoaiGhesTable extends Migration
     public function up()
     {
         Schema::create('loaighe', function (Blueprint $table) {
-            $table->increments('MaLoaiGhe');
+            $table->increments('id');
             $table->string('TenLoai');
-            $table->integer('MaGia')->unsigned();
+           
             $table->timestamps();
 
-            $table->foreign('MaGia')->references('MaGia')->on('gia');
+           
         });
     }
 

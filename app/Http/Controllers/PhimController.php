@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RequestPhim;
 use App\Http\Requests\RequesteditPhim;
 use App\phim;
+use App\TheLoai;
+
 use DB;
 class PhimController extends AdminController
 {
@@ -35,7 +37,10 @@ class PhimController extends AdminController
      */
     public function create()
     {
-        return view('admin.phim.them');
+        $TL = TheLoai::all();
+        
+    	
+        return view('admin.phim.them',['TL'=>$TL]);
     }
 
     /**
@@ -71,9 +76,9 @@ class PhimController extends AdminController
      */
     public function edit($id)
     {
-        $demo = DB::table('phim')->where('MaPhim',$id)->first();
+        $Phim= Phim::where('id',$id)->first();
      
-        return view('admin.phim.sua',compact('demo'));
+        return view('admin.phim.sua',['Phim'=>$Phim]);
     }
 
     /**
@@ -85,20 +90,22 @@ class PhimController extends AdminController
      */
     public function update(RequesteditPhim $request, $id)
     {
+      //$deletedRows = Flight::where('active', 0)->delete();
       
-      
+      $news = Phim::find($id);
+      $news->TenPhim = $request->TenPhim;
+     
+
+      $news->save();
+        //mà không pít thêm sao
         
-        $demo = DB::table('phim')->where('MaPhim',$id)->update([
-            'MaPhim'=> $request->MaPhim,
-            
-            ]);
-        
-        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->action('PhimController@index');
     }
     public function delete($id){
-        $demo = DB::table('phim')->where('MaPhim',$id);
-        if($demo) $demo ->delete();
-        return redirect()->back();
+        $phim = Phim::where('id',$id)->first();
+  $phim->trangthai = 0;
+  $phim->save();
+  return redirect()->back()->with('thongbao', 'Thành Công');
     }
 
     /**

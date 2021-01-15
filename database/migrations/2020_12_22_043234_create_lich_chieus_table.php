@@ -14,17 +14,18 @@ class CreateLichChieusTable extends Migration
     public function up()
     {
         Schema::create('lichchieu', function (Blueprint $table) {
-            $table->increments('MaLC');
+        
             $table->date('NgayChieu');
-            $table->integer('MaPhim')->unsigned();
-            $table->integer('MaPhong')->unsigned();
-            $table->integer('MaSC')->unsigned();
+            $table->integer('Phim')->unsigned();
+            $table->integer('Phong')->unsigned();
+            $table->integer('SC')->unsigned();
             $table->tinyInteger('TrangThai')->default(1);
             $table->timestamps();
 
-            $table->foreign('MaPhim')->references('MaPhim')->on('phim');
-            $table->foreign('MaPhong')->references('MaPhong')->on('phong');
-            $table->foreign('MaSC')->references('MaSC')->on('suatchieu');
+            $table->foreign('Phim')->references('id')->on('phim');
+            $table->foreign('Phong')->references('id')->on('phong');
+            $table->foreign('SC')->references('id')->on('suatchieu');
+            $table->primary(['Phim','Phong','SC']);
         });
     }
 

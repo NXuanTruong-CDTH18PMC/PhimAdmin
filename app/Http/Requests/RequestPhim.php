@@ -25,7 +25,7 @@ class RequestPhim extends FormRequest
     {
         return [
            
-           'MaPhim' => 'required',
+          
            'TenPhim'=>'required|unique:Phim,TenPhim|max:100|min:3',
            'HinhAnh' => 'required'
           

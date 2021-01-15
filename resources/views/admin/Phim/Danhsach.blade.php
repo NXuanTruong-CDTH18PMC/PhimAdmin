@@ -18,24 +18,32 @@
         <thead>
            
             <tr>
-                <th>Mã Phim</th>
+                
                 <th>Tên Phim</th>
+                <th>TT</th>
                 <th>Ngày chiếu</th>
                 <th>Ngày kết thúc</th>
                 <th>Thời gian</th>
                 <th>Hình ảnh</th>
                 <th>Tuổi</th>
-                <th>TT</th>
+                <th>TL</th>
                 <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
             
         </thead>
-        @foreach($demo as $demos)
+        @foreach($demo as $key => $demos)
         <tbody>
        
-        <td>{{ $demos -> MaPhim }}</td>
+       
                 <td>{{ $demos -> TenPhim }}</td>
+                @if ($demos->TrangThai == 1)
+            <td><span class="text-ellipsis text-success">Đang Chiếu</span></td>
+            @elseif ($demos->trangthai == 2 ){
+            <td><span class="text-ellipsis text-primary">sáp Chiếu</span></td>
+                @else
+                <td><span class="text-ellipsis text-danger">Ngưng Hoạt Động</span></td>
+            @endif  
                 <td>{{ $demos -> NgayChieu }}</td>
                 <td>{{ $demos -> NgayKetThuc }}</td>
                 <td>{{ $demos -> ThoiGian }}</td>
@@ -47,17 +55,16 @@
                 <td>{{ $demos -> Tuoi }}</td>
              
                 
-                <td class="center"><a href="" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="">An</i></a>
-                </td>
                 
-               
+                
+                <td></td>
                 
                    
                    
                 </td>
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.phim.delete',$demos->MaPhim) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.phim.update',$demos->MaPhim) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.phim.delete',$demos->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.phim.update',$demos->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                 </td>
            
                

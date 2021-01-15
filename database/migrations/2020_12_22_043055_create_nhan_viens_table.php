@@ -14,12 +14,12 @@ class CreateNhanViensTable extends Migration
     public function up()
     {
         Schema::create('nhanvien', function (Blueprint $table) {
-            $table->increments('MaNV');
+            $table->increments('id');
             $table->string('TenNV');
             $table->tinyInteger('CMND');
             $table->tinyInteger('SDT');
             $table->string('DiaChi')->nullable();
-            $table->integer('MaRap')->unsigned();
+            $table->integer('Rap')->unsigned();
             $table->string('Email');
             $table->string('Hinh');
             $table->string('TenTK');
@@ -27,7 +27,7 @@ class CreateNhanViensTable extends Migration
             $table->tinyInteger('TrangThai')->default(1);
             $table->timestamps();
 
-            $table->foreign('MaRap')->references('MaRap')->on('rap');
+            $table->foreign('Rap')->references('id')->on('rap');
         });
     }
 

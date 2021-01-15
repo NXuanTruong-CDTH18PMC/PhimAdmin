@@ -14,14 +14,14 @@ class CreatePhongsTable extends Migration
     public function up()
     {
         Schema::create('phong', function (Blueprint $table) {
-            $table->increments('MaPhong');
+            $table->increments('id');
             $table->string('TenPhong');
             $table->tinyInteger('SoLuongGhe');
-            $table->integer('MaRap')->unsigned();
+            $table->integer('Rap')->unsigned();
             $table->tinyInteger('TrangThai')->default(1);
             $table->timestamps();
 
-            $table->foreign('MaRap')->references('MaRap')->on('rap');
+            $table->foreign('Rap')->references('id')->on('rap');
             
         });
         

@@ -14,7 +14,7 @@ class CreateThanhViensTable extends Migration
     public function up()
     {
         Schema::create('thanhvien', function (Blueprint $table) {
-            $table->increments('MaTV');
+            $table->increments('id');
             $table->string('TenTV');
             $table->tinyInteger('SDT');
             $table->string('DiaChi')->nullable();

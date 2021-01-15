@@ -14,15 +14,26 @@ class CreateVesTable extends Migration
     public function up()
     {
         Schema::create('ve', function (Blueprint $table) {
-            $table->increments('MaVe');
-            $table->integer('MaLC')->unsigned();
-            $table->integer('MaGhe')->unsigned();
-            $table->decimal('ThanhTien');
+            $table->increments('id');
+            $table->integer('Phim')->unsigned();
+            $table->integer('Phong')->unsigned();
+            $table->integer('SC')->unsigned();
+            $table->integer('NgayChieu')->unsigned();
+            $table->integer('Ghe')->unsigned();
+            $table->integer('Gia')->unsigned();
             $table->date('NgayTao');
             $table->timestamps();
 
-            $table->foreign('MaLC')->references('MaLC')->on('lichchieu');
-            $table->foreign('MaGhe')->references('MaGhe')->on('ghe');
+
+
+
+            $table->foreign('Phim')->references('Phim')->on('lichchieu');
+            $table->foreign('Phong')->references('Phong')->on('lichchieu');
+            $table->foreign('SC')->references('SC')->on('lichchieu');
+
+            $table->foreign('NgayChieu')->references('Phim')->on('lichchieu');
+            $table->foreign('Ghe')->references('id')->on('ghe');
+            $table->foreign('Gia')->references('id')->on('gia');
         });
     }
 

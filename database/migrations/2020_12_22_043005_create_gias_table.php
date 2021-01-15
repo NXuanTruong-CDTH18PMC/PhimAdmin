@@ -14,9 +14,12 @@ class CreateGiasTable extends Migration
     public function up()
     {
         Schema::create('gia', function (Blueprint $table) {
-            $table->increments('MaGia');
+            $table->increments('id');
+            $table->integer('Phim')->unsigned();
             $table->decimal('Gia');
             $table->timestamps();
+            
+            $table->foreign('Phim')->references('id')->on('phim');
         });
     }
 

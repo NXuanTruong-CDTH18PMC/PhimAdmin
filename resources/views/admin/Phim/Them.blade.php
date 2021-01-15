@@ -21,12 +21,7 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Phim</label>
-                <input class="form-control" name="MaPhim" value="" placeholder="Mã Phim" />
-                <div>    
-            </div>    
-            </div>
+           
                 <div class="form-group">
                 <label>Tên Phim</label>
                 
@@ -74,11 +69,11 @@
             <div class="form-group">
                 <label for="input" >Thể Loại</label>
                 <div>
-                    <select id="input" name="MaTL"  class="form-control">
-                            <option value="1">Kinh Dị</option>
-                            <option value="2">Hài</option>
-                            <option value="3">Tâm Lý</option>
-                            <?php  ?>
+                    <select id="input" name="TL"  class="form-control">
+                    @foreach($TL as $cn)
+                                        <option value="{{$cn->id}}">{{$cn->TenTL}}</option>
+                                        @endforeach
+                            
                     </select>
                 </div>
                 <div>
@@ -104,8 +99,8 @@
                 <div>
                     <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Đang Chiếu</option>
+                            <option value="2">Sắp Chiếu</option>
                             <?php  ?>
                     </select>
                 </div>
