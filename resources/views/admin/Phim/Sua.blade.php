@@ -34,38 +34,38 @@
             </div>
             <div class="form-group">
                  <label for="cc-exp" class="control-label mb-1">Ngày Chiếu</label>
-                <input id="cc-exp" name="NgayChieu" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="DD/MM" autocomplete="cc-exp">
+                <input id="cc-exp" name="NgayChieu" type="tel" class="form-control cc-exp" value="{{$Phim->NgayChieu}}" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="DD/MM" autocomplete="cc-exp">
                 <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                </div>
             <div class="form-group">
                  <label for="cc-exp" class="control-label mb-1">Ngày Kết thúc</label>
-                <input id="cc-exp" name="NgayKetThuc" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="DD/MM" autocomplete="cc-exp">
+                <input id="cc-exp" name="NgayKetThuc" type="tel" class="form-control cc-exp" value="{{$Phim->NgayKetThuc}}" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="DD/MM" autocomplete="cc-exp">
                 <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
             </div>
             <div class="form-group">
                 <label>Đạo diễn</label>
-                <textarea class="form-control" rows="2" name="DaoDien" placeholder="Đạo diễn..."></textarea>
+                <textarea class="form-control" rows="2" name="DaoDien"  value="{{$Phim->DaoDien}}"placeholder="Đạo diễn..."></textarea>
                 <script type="text/javascript"> </script>
             <div>
             <div class="form-group">
                 <label>Diễn Viên</label>
-                <textarea class="form-control" rows="2" name="DienVien" placeholder="Diễn Viên..."></textarea>
+                <textarea class="form-control" rows="2" name="DienVien"  value="{{$Phim->DienVien}}"placeholder="Diễn Viên..."></textarea>
                 <script type="text/javascript"> </script>
             <div>
             <div class="form-group">
                 <label>Trailer</label>
-                <textarea class="form-control" rows="2" name="Trailer" placeholder="Link..."></textarea>
+                <textarea class="form-control" rows="2" name="Trailer" value="{{$Phim->Trailer}}" placeholder="Link..."></textarea>
                 <script type="text/javascript"> </script>
             <div>
             <div class="form-group">
                 <label>Diem</label>
-                <input class="form-control" name="Diem" value="" placeholder="Tuổi" />
+                <input class="form-control" name="Diem" value="{{$Phim->Diem}}" placeholder="Tuổi" />
                 <div>    
             </div>  
            
                 <div class="form-group">
                     <label>Hình ảnh </label>
-                    <input type="file" name="HinhAnh" value="" >
+                    <input type="file" name="HinhAnh" value="{{$Phim->HinhAnh}}" >
                     
                         
                     </div>
@@ -74,7 +74,7 @@
             <div class="form-group">
                 <label for="input" >Trạng Thái</label>
                 <div>
-                    <select id="input" name="TrangThai"  class="form-control">
+                    <select id="input" name="TrangThai"  value="{{$Phim->TrangThai}} class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
                             <option value="1">Sắp Chiếu</option>
                             <option value="2">Đang Chiếu</option>
