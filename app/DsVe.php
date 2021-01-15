@@ -8,7 +8,10 @@ class DsVe extends Model
 {
     protected $table = "dsve";
 
-    protected $fillable = ['MaDS','Soluong','MaVe','MaTV','NgayTao',];
+    protected $fillable = ['id','Soluong','Ve','TV','NgayTao',];
 
     public $timestamps = false;
+    public function thanhvien(){
+        return $this->belongsTo('App\ThanhVien','TV','id');
+    }
 }

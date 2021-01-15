@@ -21,19 +21,13 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã thành viên</label>
-                <input class="form-control" name="MaTV" value="{{ $thanhvien -> MaTV }}" placeholder="Mã thành viên..." />
-                <div>
-                {!! $errors->first('MaTV') !!}
-                
-            </div>
+           
                 <div>    
             </div>    
             </div>
                 <div class="form-group">
                 <label>Tên thành viên</label>
-                <input class="form-control" name="TenTV" value="{{ $thanhvien -> TenTV }}" placeholder="Tên thành viên..." />
+                <input class="form-control" name="TenTV" value="{{ $ThanhVien -> TenTV }}" placeholder="Tên thành viên..." />
                 <div>
                 {!! $errors->first('TenTV') !!}
             </div>
@@ -57,19 +51,19 @@
 
             <div class="form-group">
                     <label>Hình ảnh </label>
-                    <input type="file" name="Hinh" value="{{ $thanhvien -> Hinh }}" >
+                    <input type="file" name="Hinh" value="{{ $ThanhVien -> Hinh }}" >
                     </div>
                 </div>
 
             <div class="form-group">
                 <label>Tài khoản</label>
-                <input class="form-control" name="TenTK" value="{{ $thanhvien -> TenTK }}" placeholder="Tài khoản..." />
+                <input class="form-control" name="TenTK" value="{{ $ThanhVien -> TenTK }}" placeholder="Tài khoản..." />
                 <div>    
             </div>  
            
             <div class="form-group">
                 <label>Mật khẩu</label>
-                <input class="form-control" name="MK" value="{{ $thanhvien -> MK }}" placeholder="Mật khẩu..." />
+                <input class="form-control" name="MK" value="{{ $ThanhVien -> MK }}" placeholder="Mật khẩu..." />
                 <div>    
             </div>  
                 
@@ -78,7 +72,7 @@
                 <div>
                     <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
+                            <option value="0">Ẩn</option>
                             <option value="1">Hiện</option>
                             <?php  ?>
                     </select>

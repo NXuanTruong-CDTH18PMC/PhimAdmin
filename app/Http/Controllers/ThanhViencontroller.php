@@ -18,7 +18,7 @@ class ThanhViencontroller extends AdminController
      */
     public function index()
     {
-        $thanhvien = thanhvien::paginate(10);
+        $thanhvien = thanhvien::where('Trangthai',1)->paginate(10);
            $data =[
                'thanhvien'=> $thanhvien
            ];
@@ -32,7 +32,8 @@ class ThanhViencontroller extends AdminController
      */
     public function create()
     {
-        return view('admin.thanhvien.them');
+        $thanhvien = ThanhVien::all();
+        return view('admin.thanhvien.them',['ThanhVien'=>$thanhvien]);
     }
 
     /**
@@ -70,9 +71,9 @@ class ThanhViencontroller extends AdminController
      */
     public function edit($id)
     {
-        $thanhvien = DB::table('thanhvien')->where('MaTV',$id)->first();
+        $ThanhVien= ThanhVien::where('id',$id)->first();
      
-        return view('admin.thanhvien.sua',compact('thanhvien'));
+        return view('admin.thanhvien.sua',['ThanhVien'=>$ThanhVien]);
     }
 
     /**
@@ -84,19 +85,26 @@ class ThanhViencontroller extends AdminController
      */
     public function update(ThanhVienRequesteidt $request, $id)
     {
-        $thanhvien = DB::table('thanhvien')->where('MaTV',$id)->update([
-            'MaTV'=> $request->MaTV,
-            
-            ]);
+        $news = ThanhVien::find($id);
+        $news->TenTV = $request->TenTV;
+        $news->SDT = $request->SDT;
+        $news->DiaChi = $request->DiaChi;
+        $news->Email = $request->Email;
+        $news->Hinh = $request->Hinh;
+        $news->TenTK = $request->TenTK;
+        $news->MK = $request->MK;
+        $news->TrangThai = $request->TrangThai;
+        $news->save();
         
-        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->action('ThanhVienController@index');
     }
 
 
     public function delete($id){
-        $thanhvien = DB::table('thanhvien')->where('MaTV',$id);
-        if($thanhvien) $thanhvien ->delete();
-        return redirect()->back();
+        $thanhvien = ThanhVien::where('id',$id)->first();
+        $thanhvien->trangthai = 0;
+        $thanhvien->save();
+        return redirect()->back()->with('thongbao', 'Thành Công');
     }
 
 

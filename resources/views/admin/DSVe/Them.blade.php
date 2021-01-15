@@ -10,7 +10,7 @@
         <div class="panel panel-green">
             <div class="panel-heading" style="height:60px;">
               <h3 >
-                <a href="{{ Route('admin.ve.index') }}" style="color:blue;"><i class="fa fa-product-hunt" style="color:blue;">Danh sách vé</i></a>
+                <a href="{{ Route('admin.dsve.index') }}" style="color:blue;"><i class="fa fa-product-hunt" style="color:blue;">Danh sách vé</i></a>
                 /Thêm Mới
               </h3>
             <div class="navbar-right" style="margin-right:10px;margin-top:-50px;">
@@ -21,11 +21,7 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã danh sách</label>
-                <input class="form-control" name="MaDs" value="" placeholder="Nhập mã danh sách..." />
-                <div>    
-            </div>    
+            
             </div>
                 <div class="form-group">
                 <label>Số lượng</label>
@@ -37,12 +33,12 @@
             </div>
             <div class="form-group">
                 <label>Mã vé</label>
-                <textarea class="form-control" rows="2" name="MaVe" placeholder="Nhập mã vé..."></textarea>
+                <textarea class="form-control" rows="2" name="Ve" placeholder="Nhập mã vé..."></textarea>
                 <script type="text/javascript"> </script>
             <div>
             <div class="form-group">
                 <label>Mã thành viên</label>
-                <textarea class="form-control" rows="2" name="MaTV" placeholder="Nhập mã thành viên..."></textarea>
+                <textarea class="form-control" rows="2" name="TV" placeholder="Nhập mã thành viên..."></textarea>
                 <script type="text/javascript"> </script>
             <div>
             

@@ -19,32 +19,33 @@
            
             <tr>
                 <th>Mã vé</th>
-                <th>Mã lịch chiếu</th>
-                <th>Mã ghế</th>
-                <th>Thành tiền</th>
+                <th>Phim</th>
+                <th>Phòng</th>
+                <th>Suất chiếu</th>
+                <th>Ngày chiếu</th>
+                <th>Ghế</th>
+                <th>Giá</th>
                 <th>Ngày tạo</th>
                 <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
             
         </thead>
-        @foreach($ve as $demos)
+        @foreach($ve as $key => $demos)
         <tbody>
        
-        <td>{{ $demos -> MaVe }}</td>
-                <td>{{ $demos -> MaLC }}</td>
-                <td>{{ $demos -> MaGhe }}</td>
-                <td>{{ $demos -> ThanhTien }} VND</td>
+        <td>{{ $demos -> id }}</td>
+                <td><span class="text-ellipsis">{{$demos->phim->TenPhim}}</span></td>
+                <td>{{ $demos -> Phong }}</td>
+                <td><span class="text-ellipsis">{{$demos->suatchieu->ThoiGianChieu}}</span></td>
+                <td><span class="text-ellipsis">{{$demos->lichchieu->NgayChieu}}</span></td>
+                <td><span class="text-ellipsis">Hàng {{$demos->ghe->SoHang}}-Cột {{$demos->ghe->SoCot}}</span></td>
+                <td><span class="text-ellipsis">{{$demos->gia->Gia}} VNĐ</span></td>
                 <td>{{ $demos -> NgayTao }}</td>
-               
-                
-               
-                
-                   
-                   
+
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.ve.delete',$demos->MaVe) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.ve.update',$demos->MaVe) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.ve.delete',$demos->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.ve.update',$demos->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                 </td>
            
                

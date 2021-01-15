@@ -8,7 +8,11 @@ class Ghe extends Model
 {
     protected $table = "Ghe";
 
-    protected $fillable = ['MaGhe','MaLoaiGhe','SoHang','SoCot',];
+    protected $fillable = ['id','LoaiGhe','Rap','SoHang','SoCot',];
 
     public $timestamps = false;
+
+    public function loaighe(){
+        return $this->belongsTo('App\LoaiGhe','LoaiGhe','id');
+    }
 }

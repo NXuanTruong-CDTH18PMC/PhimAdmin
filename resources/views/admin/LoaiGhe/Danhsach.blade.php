@@ -20,22 +20,18 @@
             <tr>
                 <th>Mã loại ghế</th>
                 <th>Tên loại</th>
-                <th>Mã giá</th>
-                <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
             
         </thead>
-        @foreach($loaighe as $demos)
+        @foreach($loaighe as $key => $demos)
         <tbody>
        
-        <td>{{ $demos -> MaLoaiGhe }}</td>
+        <td>{{ $demos -> id }}</td>
                 <td>{{ $demos -> TenLoai }}</td>
-                <td>{{ $demos -> MaGia }}</td>
+                
     
-                <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.loaighe.delete',$demos->MaLoaiGhe) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.loaighe.update',$demos->MaLoaiGhe) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.loaighe.update',$demos->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                 </td>
            
                

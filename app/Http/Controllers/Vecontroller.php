@@ -31,7 +31,8 @@ class Vecontroller extends Controller
      */
     public function create()
     {
-        return view('admin.ve.them');
+        $ve = Ve::all();
+        return view('admin.ve.them',['Ve'=>$ve]);
     }
 
     /**
@@ -66,9 +67,9 @@ class Vecontroller extends Controller
      */
     public function edit($id)
     {
-        $ve = DB::table('ve')->where('MaVe',$id)->first();
+        $Ve= Ve::where('id',$id)->first();
      
-        return view('admin.ve.sua',compact('ve'));
+        return view('admin.ve.sua',['Ve'=>$Ve]);
     }
 
     /**
@@ -80,17 +81,22 @@ class Vecontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ve = DB::table('ve')->where('MaVe',$id)->update([
-            'MaVe'=> $request->MaVe,
-            
-            ]);
+        $news = Ve::find($id);
+        $news->Phim = $request->Phim;
+        $news->Phong = $request->Phong;
+        $news->SC = $request->SC;
+        $news->NgayChieu = $request->NgayChieu;
+        $news->Ghe = $request->Ghe;
+        $news->Gia = $request->Gia;
+        $news->NgayTao = $request->NgayTao;
+        $news->save();
         
-        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->action('VeController@index');
     }
 
 
     public function delete($id){
-        $ve = DB::table('ve')->where('MaVe',$id);
+        $ve = DB::table('ve')->where('id',$id);
         if($ve) $ve ->delete();
         return redirect()->back();
     }

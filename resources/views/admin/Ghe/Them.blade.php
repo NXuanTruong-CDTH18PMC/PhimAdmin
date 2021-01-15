@@ -21,20 +21,21 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã ghế</label>
-                <input class="form-control" name="MaGhe" value="" placeholder="Nhập mã ghế..." />
-                <div>    
-            </div>    
+            
             </div>
                 <div class="form-group">
                 <label>Mã loại ghế</label>
                 
-                <input class="form-control" name="MaLoaiGhe" value="" placeholder="Nhập mã loại ghế..." />
+                <input class="form-control" name="LoaiGhe" value="" placeholder="Nhập mã loại ghế..." />
                 <div>
               
             </div>
             </div>
+            <div class="form-group">
+                <label>Rạp</label>
+                <textarea class="form-control" rows="2" name="Rap" placeholder="Nhập mã rạp..."></textarea>
+                <script type="text/javascript"> </script>
+            <div>
             <div class="form-group">
                 <label>Số hàng</label>
                 <textarea class="form-control" rows="2" name="SoHang" placeholder="Nhập số hàng..."></textarea>
@@ -45,6 +46,7 @@
                 <textarea class="form-control" rows="2" name="SoCot" placeholder="Nhập số cột..."></textarea>
                 <script type="text/javascript"> </script>
             <div>
+            
      
                 
             </div>

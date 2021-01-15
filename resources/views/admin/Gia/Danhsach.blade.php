@@ -25,21 +25,23 @@
           
             <tr>
                 <th>Mã Giá</th>
+                <th>Mã phim</th>
+                <th>Tên phim</th>
                 <th>Giá</th>
-
-
                 <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
             
         </thead>
 
-        @foreach($gia as $gi)
+        @foreach($gia as $key => $gi)
        
         <tbody>
        
-                <td>{{$gi->MaGia}}</td>
-                <td>{{$gi->Gia}}</td>
+                <td>{{$gi->id}}</td>
+                <td>{{$gi->Phim}}</td>
+                <td><span class="text-ellipsis">{{$gi->phim->TenPhim}}</span></td>
+                <td>{{$gi->Gia}} VNĐ</td>
                 
                
                 
@@ -57,8 +59,8 @@
 
               
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.gia.delete',$gi->MaGia) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.gia.update',$gi->MaGia) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.gia.delete',$gi->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.gia.update',$gi->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
 
                 </td>
            

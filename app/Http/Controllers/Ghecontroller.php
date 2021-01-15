@@ -30,7 +30,8 @@ class Ghecontroller extends Controller
      */
     public function create()
     {
-        return view('admin.ghe.them');
+        $ghe = Ghe::all();
+        return view('admin.ghe.them',['Ghe'=>$ghe]);
     }
 
     /**
@@ -65,7 +66,9 @@ class Ghecontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $ghe= Ghe::where('id',$id)->first();
+     
+        return view('admin.ghe.sua',['Ghe'=>$ghe]);
     }
 
     /**
@@ -77,8 +80,15 @@ class Ghecontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $news = Ghe::find($id);
+      $news->LoaiGhe = $request->LoaiGhe;
+      $news->SoHang = $request->SoHang;
+      $news->SoCot= $request->SoCot;
+      $news->save();
+        
+        return redirect()->action('GheController@index');
     }
+
 
     /**
      * Remove the specified resource from storage.

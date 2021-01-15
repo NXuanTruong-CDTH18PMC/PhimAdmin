@@ -29,7 +29,8 @@ class DsVeController extends Controller
      */
     public function create()
     {
-        return view('admin.dsve.them');
+        $dsve = DsVe::all();
+        return view('admin.dsve.them',['DsVe'=>$dsve]);
     }
 
     /**
@@ -62,9 +63,11 @@ class DsVeController extends Controller
      * @param  \App\igrate  $igrate
      * @return \Illuminate\Http\Response
      */
-    public function edit(igrate $igrate)
+    public function edit($id)
     {
-        //
+        $dsve= DsVe::where('id',$id)->first();
+     
+        return view('admin.dsve.sua',['DsVe'=>$dsve]);
     }
 
     /**
@@ -74,11 +77,23 @@ class DsVeController extends Controller
      * @param  \App\igrate  $igrate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, igrate $igrate)
+    public function update(DSVeRequest $request, $id)
     {
-        //
+        $news = DsVe::find($id);
+        $news->SoLuong = $request->SoLuong;
+        $news->Ve = $request->Ve;
+        $news->TV = $request->TV;
+        $news->NgayTao = $request->NgayTao;
+        $news->save();
+        
+        return redirect()->action('DsVeController@index');
     }
 
+    public function delete($id){
+        $dsve = DB::table('dsve')->where('id',$id);
+        if($dsve) $dsve ->delete();
+        return redirect()->back();
+    }
     /**
      * Remove the specified resource from storage.
      *

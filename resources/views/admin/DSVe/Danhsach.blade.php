@@ -22,19 +22,21 @@
                 <th>Số lượng</th>
                 <th>Mã vé</th>
                 <th>Mã thành viên</th>
+                <th>Tên thành viên tạo vé</th>  <!--Khóa ngoại-->
                 <th>Ngày tạo</th>
                 <th>Xóa</th>
                 <th>Sửa</th>
             </tr>
             
         </thead>
-        @foreach($dsve as $demos)
+        @foreach($dsve as $key => $demos)
         <tbody>
        
-        <td>{{ $demos -> MaDS }}</td>
+        <td>{{ $demos -> id }}</td>
                 <td>{{ $demos -> SoLuong }}</td>
-                <td>{{ $demos -> MaVe }}</td>
-                <td>{{ $demos -> MaTV }}</td>
+                <td>{{ $demos -> Ve }}</td>
+                <td>{{ $demos -> TV }}</td>
+                <td><span class="text-ellipsis">{{$demos->thanhvien->TenTV}}</span></td>
                 <td>{{ $demos -> NgayTao }}</td>
                
                 
@@ -43,8 +45,8 @@
                    
                    
                 <td class="center">
-                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.dsve.delete',$demos->MaDS) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                <td class="center"><a href="{{ Route('admin.dsve.update',$demos->MaDS) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                <a onclick="return confirmDel('Bạn có chắc muốn xóa dữ liệu này?')" href="{{ Route('admin.dsve.delete',$demos->id) }}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                <td class="center"><a href="{{ Route('admin.dsve.update',$demos->id) }}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                 </td>
            
                

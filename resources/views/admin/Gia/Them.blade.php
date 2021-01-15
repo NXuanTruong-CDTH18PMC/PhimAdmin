@@ -22,22 +22,24 @@
         <div class="col-lg-7">
         <div class="col-lg-12">
 
-        
+    
+
             <div class="form-group">
-                <label>Mã Giá</label>
-                <input class="form-control" name="MaGia" value="" placeholder="Mã Giá" />
+                <label>Phim</label>
+                <input class="form-control" name="Phim" value="" placeholder="Nhập mã phim..." />
                 <div>  
-                {!! $errors->first('MaGia') !!}
             </div>    
             </div>
             
             <div class="form-group">
                 <label>Giá</label>
-                <input class="form-control" name="Gia" value="" placeholder="Giá" />
+                <input class="form-control" name="Gia" value="" placeholder="Nhập giá..." />
                 <div>  
-                {!! $errors->first('Gia') !!}
+               
             </div>    
-            </div>      
+            </div>   
+            
+               
                 
             </div>
         </div>

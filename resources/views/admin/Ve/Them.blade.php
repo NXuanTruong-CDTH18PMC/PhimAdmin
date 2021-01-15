@@ -4,7 +4,7 @@
     <form action="" method="POST" >
         @csrf
 
-    
+        
         <div class="row">
         <div class="col-lg-12 ">
         <div class="panel panel-green">
@@ -21,28 +21,43 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã vé</label>
-                <input class="form-control" name="MaVe" value="" placeholder="Nhập mã vé..." />
-                <div>    
-            </div>    
+            
             </div>
                 <div class="form-group">
-                <label>Mã lịch chiếu</label>
+                <label>Phim</label>
                 
-                <input class="form-control" name="MaLC" value="" placeholder="Nhập mã lịch chiếu..." />
+                <input class="form-control" name="Phim" value="" placeholder="Nhập phim..." />
                 <div>
               
             </div>
             </div>
             <div class="form-group">
-                <label>Mã ghế</label>
-                <textarea class="form-control" rows="2" name="MaGhe" placeholder="Nhập mã ghế..."></textarea>
+                <label>Phòng</label>
+                <textarea class="form-control" rows="2" name="Phong" placeholder="Nhập phòng..."></textarea>
                 <script type="text/javascript"> </script>
             <div>
+
             <div class="form-group">
-                <label>Thành tiền</label>
-                <textarea class="form-control" rows="2" name="ThanhTien" placeholder="Nhập thành viên..."></textarea>
+                <label>Suất chiếu</label>
+                <textarea class="form-control" rows="2" name="SC" placeholder="Nhập mã suất chiếu..."></textarea>
+                <script type="text/javascript"> </script>
+            <div>
+
+            <div class="form-group">
+                <label>Ngày chiếu</label>
+                <textarea class="form-control" rows="2" name="NgayChieu" placeholder="Nhập mã phim..."></textarea>
+                <script type="text/javascript"> </script>
+            <div>
+
+               <div class="form-group">
+                <label>Ghế</label>
+                <textarea class="form-control" rows="2" name="Ghe" placeholder="Nhập mã ghế..."></textarea>
+                <script type="text/javascript"> </script>
+            <div>
+
+            <div class="form-group">
+                <label>Giá</label>
+                <textarea class="form-control" rows="2" name="Gia" placeholder="Nhập giá..."></textarea>
                 <script type="text/javascript"> </script>
             <div>
             

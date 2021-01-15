@@ -15,9 +15,9 @@ class Giacontroller extends Controller
      */
     public function index()
     {
-        $gi = gia::paginate(10);
+        $gia = gia::paginate(10);
            $data =[
-               'gia'=> $gi
+               'gia'=> $gia
            ];
         return view('admin.gia.danhsach',$data);
     }
@@ -29,7 +29,8 @@ class Giacontroller extends Controller
      */
     public function create()
     {
-        return view('admin.gia.them');
+        $gia = gia::all();
+        return view('admin.gia.them',['gia'=>$gia]);
     }
 
     /**
@@ -40,8 +41,8 @@ class Giacontroller extends Controller
      */
     public function store(GiaRequest $request)
     {
-        $gi = $request ->except('_token');
-       $id = Gia::insertgetid($gi);
+        $gia = $request ->except('_token');
+       $id = gia::insertgetid($gia);
         return redirect()->back();
     }
 
@@ -64,9 +65,9 @@ class Giacontroller extends Controller
      */
     public function edit($id)
     {
-        $gi = DB::table('gia')->where('MaGia',$id)->first();
+        $gia= gia::where('id',$id)->first();
      
-        return view('admin.gia.sua',compact('gi'));
+        return view('admin.gia.sua',['Gia'=>$gia]);
     }
 
     /**
@@ -78,16 +79,16 @@ class Giacontroller extends Controller
      */
     public function update(GiaRequest $request, $id)
     {
-        $gi= DB::table('gia')->where('MaGia',$id)->update([
-            'MaGia'=> $request->MaGia,
-            
-            ]);
+        $news = gia::find($id);
+        $news->Phim = $request->Phim;
+        $news->Gia = $request->Gia;
+        $news->save();
         
-        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->action('GiaController@index');
     }
     public function delete($id){
-        $gi = DB::table('gia')->where('MaGia',$id);
-        if($gi) $gi ->delete();
+        $gia = DB::table('gia')->where('id',$id);
+        if($gia) $gi ->delete();
         return redirect()->back();
     }
 

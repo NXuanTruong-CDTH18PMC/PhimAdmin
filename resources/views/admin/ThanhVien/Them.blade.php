@@ -21,11 +21,7 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã thành viên</label>
-                <input class="form-control" name="MaTV" value="" placeholder="Mã thành viên..." />
-                <div>    
-            </div>    
+           
             </div>
                 <div class="form-group">
                 <label>Tên thành viên</label>
@@ -81,8 +77,8 @@
                 <div>
                     <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Còn hoạt động</option>
+                            <option value="0">Không hoạt động</option>
                             <?php  ?>
                     </select>
                 </div>

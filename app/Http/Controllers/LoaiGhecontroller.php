@@ -30,7 +30,8 @@ class LoaiGhecontroller extends Controller
      */
     public function create()
     {
-        return view('admin.loaighe.them');
+        $loaighe = LoaiGhe::all();
+        return view('admin.loaighe.them',['LoaiGhe'=>$loaighe]);
     }
 
     /**
@@ -65,7 +66,9 @@ class LoaiGhecontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $loaighe= LoaiGhe::where('id',$id)->first();
+     
+        return view('admin.loaighe.sua',['LoaiGhe'=>$loaighe]);
     }
 
     /**
@@ -77,7 +80,11 @@ class LoaiGhecontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $news = LoaiGhe::find($id);
+      $news->TenLoai = $request->TenLoai;
+      $news->save();
+        
+        return redirect()->action('LoaiGheController@index');
     }
 
     /**

@@ -21,22 +21,20 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
+        <div class="form-group">
+                <label>Phim</label>
+                <input class="form-control" name="Phim" value="" placeholder="Nhập mã phim..." />
+                <div>  
+            </div>    
+            </div>
+            
             <div class="form-group">
-                <label>Mã Giá</label>
-                <input class="form-control" name="MaGia" value="{{ $gi -> MaGia }}" placeholder="Mã Giá" />
-                <div>
-                {!! $errors->first('MaGia') !!}
-                </div>
-               
-                
-            </div>
-                <div class="form-group">
                 <label>Giá</label>
-                <input class="form-control" name="Gia" value="{{ $gi -> Gia }}" placeholder="Giá" />
-                <div>
-                {!! $errors->first('Gia') !!}
-            </div>
-            </div>
+                <input class="form-control" name="Gia" value="" placeholder="Nhập giá..." />
+                <div>  
+               
+            </div>    
+            </div>   
                     
                 
             </div>

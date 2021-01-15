@@ -21,12 +21,7 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã loại ghế</label>
-                <input class="form-control" name="MaLoaiGhe" value="" placeholder="Nhập mã loại ghế..." />
-                <div>    
-            </div>    
-            </div>
+            
                 <div class="form-group">
                 <label>Tên loại</label>
                 
@@ -35,11 +30,7 @@
               
             </div>
             </div>
-            <div class="form-group">
-                <label>Mã giá</label>
-                <textarea class="form-control" rows="2" name="MaGia" placeholder="Nhập mã giá..."></textarea>
-                <script type="text/javascript"> </script>
-            <div>
+            
             
      
                 

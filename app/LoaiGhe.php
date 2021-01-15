@@ -8,7 +8,7 @@ class LoaiGhe extends Model
 {
     protected $table = "LoaiGhe";
 
-    protected $fillable = ['MaLoaiGhe','TenLoai','MaGia',];
+    protected $fillable = ['id','TenLoai',];
 
     public $timestamps = false;
 }
