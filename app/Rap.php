@@ -8,7 +8,7 @@ class Rap extends Model
 {
     protected $table = "Rap";
 
-            protected $fillable = ['MaRap','TenRap','DiaChi','SoPhong','SDT','TrangThai'];
+            protected $fillable = ['id','TenRap','DiaChi','SoPhong','SDT','TrangThai'];
         
             public $timestamps = false;
 }

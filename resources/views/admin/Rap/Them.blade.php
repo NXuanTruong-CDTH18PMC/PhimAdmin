@@ -23,13 +23,13 @@
         <div class="col-lg-12">
             <div class="form-group">
                 <label>Mã Rạp Phim</label>
-                <input class="form-control" name="MaRap" value="" placeholder="Mã Rạp" />
+                <input class="form-control" name="id" value="" placeholder="Mã Rạp" />
                 <div>    
-                {!! $errors->first('MaRap') !!}
+                {!! $errors->first('id') !!}
             </div>    
             </div>
                 <div class="form-group">
-                <label>Tên Phim</label>
+                <label>Tên Rạp</label>
                 
                 <input class="form-control" name="TenRap" value="" placeholder="Tên Rạp" />
                 <div>
@@ -63,10 +63,10 @@
             <div class="form-group">
                 <label for="input" >Trạng Thái</label>
                 <div>
-                    <select id="input" name="TrangThai"  class="form-control">
+                <select id="input" name="TrangThai"  class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Đang Chiếu</option>
+                            <option value="2">Sắp Chiếu</option>
                             <?php  ?>
                     </select>
                 </div>

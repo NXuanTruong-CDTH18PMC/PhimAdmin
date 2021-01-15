@@ -17,7 +17,7 @@ class CreateNhanViensTable extends Migration
             $table->increments('id');
             $table->string('TenNV');
             $table->tinyInteger('CMND');
-            $table->tinyInteger('SDT');
+            $table->string('SDT');
             $table->string('DiaChi')->nullable();
             $table->integer('Rap')->unsigned();
             $table->string('Email');

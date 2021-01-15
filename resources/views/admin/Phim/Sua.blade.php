@@ -74,7 +74,7 @@
             <div class="form-group">
                 <label for="input" >Trạng Thái</label>
                 <div>
-                    <select id="input" name="TrangThai"  value="{{$Phim->TrangThai}} class="form-control">
+                    <select id="input" name="TrangThai"  value="{{$Phim->TrangThai}}" class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
                             <option value="1">Sắp Chiếu</option>
                             <option value="2">Đang Chiếu</option>

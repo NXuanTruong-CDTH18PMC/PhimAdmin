@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('unique_id');
-            $table->string('encrypted_passwork');
+            $table->string('encrypted_password');
             $table->string('salt');
           
             $table->rememberToken();

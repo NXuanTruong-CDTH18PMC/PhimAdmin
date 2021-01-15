@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\RapRequest;
-use App\rap;
+use App\Rap;
 use DB;
 
 class Rapcontroller extends Controller
@@ -65,9 +65,9 @@ class Rapcontroller extends Controller
      */
     public function edit($id)
     {
-        $rp = DB::table('rap')->where('MaRap',$id)->first();
+        $rap= Rap::where('id',$id)->first();
      
-        return view('admin.rap.sua',compact('rp'));
+        return view('admin.rap.sua',['rap'=>$rap]);
     }
 
     /**
@@ -79,17 +79,20 @@ class Rapcontroller extends Controller
      */
     public function update(RapRequest $request, $id)
     {
-        $rp = DB::table('rap')->where('MaRap',$id)->update([
-            'MaRap'=> $request->MaRap,
-            
-            ]);
+        $news = Rap::find($id);
+      $news->TenRap = $request->TenRap;
+     
+
+      $news->save();
+        //mà không pít thêm sao
         
-        return redirect()->back()->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->action('Rapcontroller@index');
     }
     public function delete($id){
-        $rp = DB::table('rap')->where('MaRap',$id);
-        if($rp) $rp ->delete();
-        return redirect()->back();
+        $rp = rap::where('id',$id)->first();
+  $rp->trangthai = 0;
+  $rp->save();
+  return redirect()->back()->with('thongbao', 'Thành Công');
     }
 
     /**

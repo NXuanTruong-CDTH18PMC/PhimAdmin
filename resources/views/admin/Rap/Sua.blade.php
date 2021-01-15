@@ -21,42 +21,39 @@
             <div class="panel-body">
         <div class="col-lg-7">
         <div class="col-lg-12">
-            <div class="form-group">
-                <label>Mã Rạp</label>
-                <input class="form-control" name="MaRap" value="{{ $rp -> MaRap }}" placeholder="Mã Rạp" />
-                <div>
-                {!! $errors->first('MaRap') !!}
-                
-            </div>
-                <div>    
+        <div>    
             </div>    
             </div>
                 <div class="form-group">
                 <label>Tên Rạp Phim</label>
-                <input class="form-control" name="TenRap" value="{{ $rp -> TenRap }}" placeholder="Tên Rạp Phim" />
+                <input class="form-control" name="TenRap" value="{{ $rap -> TenRap }}" placeholder="Tên Rạp Phim" />
                 <div>
-                {!! $errors->first('TenRap') !!}
+               
             </div>
             </div>
             <div class="form-group">
                  <label for="cc-exp" class="control-label mb-1">Địa Chỉ</label>
-                <input id="cc-exp" name="NgayChieu" type="tel" class="form-control cc-exp" value="{{ $rp -> DiaChi }}" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid adress" placeholder="Địa chỉ" autocomplete="cc-exp">
-                <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                <input id="cc-exp" name="DiaChi" type="tel" class="form-control cc-exp" value="{{ $rap -> DiaChi }}">
                </div>
             
                        
             <div class="form-group">
                 <label>Số Phòng</label>
-                <input class="form-control" name="Diem" value="{{ $rp -> SoPhong }}" placeholder="Số Phòng" />
+                <input class="form-control" name="SoPhong" value="{{ $rap -> SoPhong }}" placeholder="Số Phòng" />
+                <div>    
+            </div>       
+            <div class="form-group">
+                <label>Số Phòng</label>
+                <input class="form-control" name="SDT" value="{{ $rap -> SDT }}" placeholder="Số điện thoại" />
                 <div>    
             </div>                 
             <div class="form-group">
                 <label for="input" >Trạng Thái</label>
                 <div>
-                    <select id="input" name="TrangThai"  class="form-control">
+                <select id="input" name="TrangThai" value="{{$rap->TrangThai}}" class="form-control">
                             <option value="">--Chọn Trạng Thái--</option>
-                            <option value="2">Ẩn</option>
-                            <option value="1">Hiện</option>
+                            <option value="1">Đang Chiếu</option>
+                            <option value="2">Sắp Chiếu</option>
                             <?php  ?>
                     </select>
                 </div>
